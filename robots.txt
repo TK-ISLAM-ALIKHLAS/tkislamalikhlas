@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tk-islam-alikhlas.github.io/tkislamalikhlas/sitemap.xml
