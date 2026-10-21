@@ -121,9 +121,9 @@
             </div>
             <div class="flex items-center space-x-3">
                 <span class="text-emerald-200">Ikuti Kami:</span>
-                <a href="#" class="hover:text-goldCustom transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-goldCustom transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="hover:text-goldCustom transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-goldCustom transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-goldCustom transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-goldCustom transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -340,7 +340,7 @@
         </div>
     </section>
 
-    <!-- SECTION PPDB ONLINE & KALKULATOR BIAYA -->
+    <!-- SECTION PPDB ONLINE & KALKULATOR BIAYA (DIPERBAIKI) -->
     <section id="ppdb" class="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-emeraldDark text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -353,13 +353,322 @@
                 
                 <!-- INFORMASI GELOMBANG & KALKULATOR -->
                 <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20">
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-xl">
                         <h3 class="text-xl font-bold text-goldCustom mb-4 flex items-center gap-2">
                             <i class="fa-solid fa-calendar-check"></i> Jadwal Gelombang PPDB
                         </h3>
                         <div class="space-y-4 text-sm">
-                            <div class="bg-white/10 p-3 rounded-xl border-l-4 border-goldCustom">
-                                <p class="font-bold">Gelombang 1 (Early Bird)</p>
-                                <p class="text-xs text-slate-300">1 November - 31 Januari</p>
+                            <div class="bg-white/10 p-3.5 rounded-xl border-l-4 border-goldCustom">
+                                <p class="font-bold">Gelombang 1 (Early Bird - Diskon 15%)</p>
+                                <p class="text-xs text-slate-300 mt-0.5">1 November - 31 Januari</p>
                             </div>
-                            <div class
+                            <div class="bg-white/5 p-3.5 rounded-xl border-l-4 border-slate-400">
+                                <p class="font-bold">Gelombang 2 (Reguler)</p>
+                                <p class="text-xs text-slate-300 mt-0.5">1 Februari - 30 April</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-xl">
+                        <h3 class="text-xl font-bold text-goldCustom mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> Simulasi Estimasi Biaya
+                        </h3>
+                        <p class="text-xs text-slate-300 mb-4">Pilih kelompok belajar untuk melihat perkiraan rincian investasi pendidikan:</p>
+                        
+                        <div class="mb-4">
+                            <label for="calc-program" class="block text-xs font-semibold mb-1">Pilih Program:</label>
+                            <select id="calc-program" onchange="calculateFee()" class="w-full bg-slate-800 text-white rounded-xl p-3 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-goldCustom text-sm">
+                                <option value="kb">Playgroup / KB (Usia 3-4 Tahun)</option>
+                                <option value="tka">TK - A (Usia 4-5 Tahun)</option>
+                                <option value="tkb">TK - B (Usia 5-6 Tahun)</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2 text-xs border-t border-white/10 pt-3">
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-300">Uang Pangkal & Gedung:</span>
+                                <span id="fee-pangkal" class="font-bold text-white">Rp 3.500.000</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-300">Seragam & Buku:</span>
+                                <span id="fee-perlengkapan" class="font-bold text-white">Rp 1.200.000</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-300">SPP Bulan Pertama:</span>
+                                <span id="fee-spp" class="font-bold text-white">Rp 450.000</span>
+                            </div>
+                            <div class="flex justify-between text-base font-bold text-goldCustom pt-3 border-t border-white/20">
+                                <span>Total Estimasi:</span>
+                                <span id="fee-total">Rp 5.150.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULIR PPDB (DIPERBAIKI) -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white text-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl border border-slate-100">
+                        <div class="border-b border-slate-100 pb-4 mb-6">
+                            <h3 class="text-2xl font-bold text-emeraldDark">Formulir PPDB Online</h3>
+                            <p class="text-xs text-slate-500 mt-1">Lengkapi data berikut. Sistem akan langsung mengarahkan Anda ke WhatsApp Admin Resmi Sekolah.</p>
+                        </div>
+
+                        <form id="ppdbForm" onsubmit="submitFormToWA(event)" class="space-y-4">
+                            <div>
+                                <label for="namaAnak" class="block text-xs font-bold uppercase text-slate-600 mb-1">Nama Lengkap Calon Siswa *</label>
+                                <input type="text" id="namaAnak" required placeholder="Contoh: Muhammad Azzam" class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="tglLahir" class="block text-xs font-bold uppercase text-slate-600 mb-1">Tanggal Lahir Anak *</label>
+                                    <input type="date" id="tglLahir" required class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50">
+                                </div>
+                                <div>
+                                    <label for="pilihanKelompok" class="block text-xs font-bold uppercase text-slate-600 mb-1">Kelompok Belajar *</label>
+                                    <select id="pilihanKelompok" required class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50">
+                                        <option value="Playgroup / Kelompok Bermain (KB)">Playgroup / KB (3-4 Tahun)</option>
+                                        <option value="Kelompok TK - A">TK - A (4-5 Tahun)</option>
+                                        <option value="Kelompok TK - B">TK - B (5-6 Tahun)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="namaOrtu" class="block text-xs font-bold uppercase text-slate-600 mb-1">Nama Ayah / Ibu / Wali *</label>
+                                    <input type="text" id="namaOrtu" required placeholder="Contoh: Bpk. Ahmad" class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50">
+                                </div>
+                                <div>
+                                    <label for="noWA" class="block text-xs font-bold uppercase text-slate-600 mb-1">No. WhatsApp Aktif (Format: 08xxx) *</label>
+                                    <input type="tel" id="noWA" required placeholder="Contoh: 081234567890" class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="alamat" class="block text-xs font-bold uppercase text-slate-600 mb-1">Alamat Domisili Ringkas *</label>
+                                <textarea id="alamat" rows="2" required placeholder="Contoh: Kp. Rawa Julang, Desa Gandamekar" class="w-full p-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emeraldCustom focus:outline-none text-sm bg-slate-50/50"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-emeraldCustom hover:bg-emeraldDark text-white font-bold py-4 rounded-xl shadow-lg transition-all duration-300 text-sm flex items-center justify-center gap-2 mt-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Kirim Pendaftaran via WhatsApp</span>
+                            </button>
+                            <p class="text-[11px] text-center text-slate-400 pt-1">Data Anda aman dan langsung terhubung ke nomor panitia PPDB resmi.</p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (DIPERBAIKI) -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                
+                <!-- KOLOM 1: IDENTITAS -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emeraldDark text-goldCustom font-bold rounded-full flex items-center justify-center border border-goldCustom text-xs">TKIA</div>
+                        <span class="text-base font-bold font-heading text-white tracking-wide">TK ISLAM AL-IKHLAS</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Lembaga Pendidikan Anak Usia Dini (PAUD) Islam Terpadu yang berdedikasi membentuk generasi cerdas, ceria, dan berakhlak mulia di Cikarang Barat[cite: 2].
+                    </p>
+                    <div class="text-xs text-slate-400 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-goldCustom mr-1.5"></i> Kp. Rawa Julang Jl. Djasip Rt 004 / 002, Desa Gandamekar, Cikarang Barat 17520, Bekasi, Jawa Barat[cite: 2]</p>
+                    </div>
+                </div>
+
+                <!-- KOLOM 2: MENU NAVIGASI KLASTER -->
+                <div>
+                    <h4 class="text-sm font-bold text-goldCustom uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Menu Utama</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#beranda" class="hover:text-emeraldCustom transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[10px] text-goldCustom"></i> Beranda Utama</a></li>
+                        <li><a href="#fasilitas" class="hover:text-emeraldCustom transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[10px] text-goldCustom"></i> Fasilitas Sekolah</a></li>
+                        <li><a href="#ppdb" class="hover:text-emeraldCustom transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[10px] text-goldCustom"></i> PPDB & Biaya</a></li>
+                        <li><a href="kurikulum-pembelajaran.html" class="hover:text-emeraldCustom transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[10px] text-goldCustom"></i> Kurikulum & Tahfidz</a></li>
+                        <li><a href="lokasi-dan-faq.html" class="hover:text-emeraldCustom transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[10px] text-goldCustom"></i> Lokasi & FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- KOLOM 3: JAM OPERASIONAL -->
+                <div>
+                    <h4 class="text-sm font-bold text-goldCustom uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Jam Operasional</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex justify-between"><span>Senin - Kamis:</span> <span class="font-medium text-slate-300">07.30 - 12.00 WIB</span></li>
+                        <li class="flex justify-between"><span>Jumat:</span> <span class="font-medium text-slate-300">07.30 - 11.00 WIB</span></li>
+                        <li class="flex justify-between"><span>Sabtu - Minggu:</span> <span class="font-medium text-slate-300">Libur</span></li>
+                        <li class="pt-2 text-emeraldCustom font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Layanan PPDB Online 24 Jam
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- KOLOM 4: KONTAK & SOSMED -->
+                <div>
+                    <h4 class="text-sm font-bold text-goldCustom uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Hubungi Kami</h4>
+                    <p class="text-xs text-slate-400 mb-3">Layanan Informasi & Pendaftaran:</p>
+                    <p class="text-xs text-slate-300 font-semibold mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-goldCustom"></i> 0821-1235-5846 / 0851-3496-1663[cite: 2]
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-emeraldCustom text-white rounded-full flex items-center justify-center transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-emeraldCustom text-white rounded-full flex items-center justify-center transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-emeraldCustom text-white rounded-full flex items-center justify-center transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
+                <p>&copy; 2026 TK Islam Al-Ikhlas Gandamekar, Cikarang Barat. Hak Cipta Dilindungi Undang-Undang.</p>
+                <p class="text-slate-400">Website Resmi PPDB & Profil Sekolah</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group transform hover:scale-110 transition-all" aria-label="Chat WhatsApp Admin">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out text-xs font-bold pl-0 group-hover:pl-2">Tanya Admin WA</span>
+    </a>
+
+    <!-- SCRIPT LOGIC (SLIDER, KALKULATOR, WA SUBMIT) -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // SLIDER DATA & LOGIC
+        const sliderData = [
+            { subtitle: "Ustadzah Kompeten & Pengajar S1", title: "Gedung & Playground Ramah Anak", icon: "fa-graduation-cap" },
+            { subtitle: "Kebersamaan & Karakter Islami", title: "Kegiatan Pembelajaran Luar Ruang", icon: "fa-users" },
+            { subtitle: "Fasilitas Olahraga & Fun Day", title: "Area Kolam Renang Anak", icon: "fa-water" }
+        ];
+
+        let currentSlideIndex = 0;
+        let slideInterval;
+
+        function updateSlideDisplay(index) {
+            for (let i = 0; i < 3; i++) {
+                const img = document.getElementById(`slide-${i}`);
+                if (img) {
+                    if (i === index) {
+                        img.classList.remove('opacity-0');
+                        img.classList.add('opacity-100');
+                    } else {
+                        img.classList.remove('opacity-100');
+                        img.classList.add('opacity-0');
+                    }
+                }
+            }
+            const sub = document.getElementById('slider-subtitle');
+            const tit = document.getElementById('slider-title');
+            const ico = document.getElementById('slider-icon');
+            if(sub) sub.textContent = sliderData[index].subtitle;
+            if(tit) tit.textContent = sliderData[index].title;
+            if(ico) ico.className = `fa-solid ${sliderData[index].icon} text-goldCustom`;
+
+            const dots = document.querySelectorAll('.dot-indicator');
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.remove('bg-slate-300');
+                    dot.classList.add('bg-emeraldCustom');
+                } else {
+                    dot.classList.remove('bg-emeraldCustom');
+                    dot.classList.add('bg-slate-300');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % 3;
+            updateSlideDisplay(currentSlideIndex);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + 3) % 3;
+            updateSlideDisplay(currentSlideIndex);
+            resetAutoSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlideDisplay(currentSlideIndex);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                currentSlideIndex = (currentSlideIndex + 1) % 3;
+                updateSlideDisplay(currentSlideIndex);
+            }, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+
+        // KALKULATOR ESTIMASI BIAYA
+        function calculateFee() {
+            const program = document.getElementById('calc-program').value;
+            const pangkal = document.getElementById('fee-pangkal');
+            const perlengkapan = document.getElementById('fee-perlengkapan');
+            const spp = document.getElementById('fee-spp');
+            const total = document.getElementById('fee-total');
+
+            if(program === 'kb') {
+                pangkal.textContent = 'Rp 3.500.000';
+                perlengkapan.textContent = 'Rp 1.200.000';
+                spp.textContent = 'Rp 450.000';
+                total.textContent = 'Rp 5.150.000';
+            } else if(program === 'tka') {
+                pangkal.textContent = 'Rp 4.000.000';
+                perlengkapan.textContent = 'Rp 1.350.000';
+                spp.textContent = 'Rp 500.000';
+                total.textContent = 'Rp 5.850.000';
+            } else if(program === 'tkb') {
+                pangkal.textContent = 'Rp 4.000.000';
+                perlengkapan.textContent = 'Rp 1.400.000';
+                spp.textContent = 'Rp 500.000';
+                total.textContent = 'Rp 5.900.000';
+            }
+        }
+
+        // INTEGRASI WHATSAPP PPDB FORM
+        function submitFormToWA(event) {
+            event.preventDefault();
+
+            const namaAnak = document.getElementById('namaAnak').value;
+            const tglLahir = document.getElementById('tglLahir').value;
+            const kelompok = document.getElementById('pilihanKelompok').value;
+            const namaOrtu = document.getElementById('namaOrtu').value;
+            const noWA = document.getElementById('noWA').value;
+            const alamat = document.getElementById('alamat').value;
+
+            const adminPhoneNumber = "6285134961663"; 
+
+            const message = `*PENDAFTARAN PPDB ONLINE - TK ISLAM AL-IKHLAS*%0A%0A` +
+                `• *Nama Anak:* ${namaAnak}%0A` +
+                `• *Tanggal Lahir:* ${tglLahir}%0A` +
+                `• *Kelompok Belajar:* ${kelompok}%0A` +
+                `• *Nama Orang Tua/Wali:* ${namaOrtu}%0A` +
+                `• *No. WhatsApp:* ${noWA}%0A` +
+                `• *Alamat:* ${alamat}%0A%0A` +
+                `_Mohon informasi lanjutan mengenai ketersediaan kuota dan proses verifikasi berkas. Terima kasih._`;
+
+            window.open(`https://wa.me/${adminPhoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
