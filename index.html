@@ -482,10 +482,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 
-                <!-- KOLOM 1: IDENTITAS -->
+               <!--   KOLOM 1: IDENTITAS -->
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emeraldDark text-goldCustom font-bold rounded-full flex items-center justify-center border border-goldCustom text-xs">TKIA</div>
+                       <!--  <div class="w-10 h-10 bg-emeraldDark text-goldCustom font-bold rounded-full flex items-center justify-center border border-goldCustom text-xs">TKIA</div>
+                       -->
+                        <div class="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center">
+                        <img src="logo.png" alt="Logo resmi TK Islam Al-Ikhlas Cikarang Barat" class="w-12 h-12 sm:w-16 sm:h-16 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emeraldDark text-goldCustom font-bold flex items-center justify-center text-xs border-2 border-goldCustom\'>TKIA</div>';">
+                    </div>
                         <span class="text-base font-bold font-heading text-white tracking-wide">TK ISLAM AL-IKHLAS</span>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
@@ -642,20 +646,20 @@
             const total = document.getElementById('fee-total');
 
             if(program === 'kb') {
-                pangkal.textContent = 'Rp 850.000';
+                pangkal.textContent = 'Rp 1.250.000';
                 perlengkapan.textContent = 'Rp 790.000';
-                spp.textContent = 'Rp 140.000';
-                total.textContent = 'Rp 1.780.000';
+                spp.textContent = 'Rp 250.000';
+                total.textContent = 'Rp 2.290.000';
             } else if(program === 'tka') {
-                pangkal.textContent = 'Rp 850.000';
+                pangkal.textContent = 'Rp 950.000';
                 perlengkapan.textContent = 'Rp 790.000';
                 spp.textContent = 'Rp 140.000';
-                total.textContent = 'Rp 1.780.000';
+                total.textContent = 'Rp 1.880.000';
             } else if(program === 'tkb') {
-                pangkal.textContent = 'Rp 850.000';
+                pangkal.textContent = 'Rp 950.000';
                 perlengkapan.textContent = 'Rp 790.000';
                 spp.textContent = 'Rp 140.000';
-                total.textContent = 'Rp 1.780.000';
+                total.textContent = 'Rp 1.880.000';
             }
         }
 
