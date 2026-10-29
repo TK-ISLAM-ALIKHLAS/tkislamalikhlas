@@ -85,7 +85,10 @@
     <!-- NAVIGASI TAB MODUL MENU -->
     <nav class="bg-white border-b border-slate-200 sticky top-[57px] z-30 shadow-xs">
         <div class="max-w-5xl mx-auto px-2 overflow-x-auto scrollbar-none flex justify-start sm:justify-center gap-1 sm:gap-2 py-2">
-            <button onclick="showSection('doa')" id="nav-doa" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
+            <button onclick="showSection('praktek')" id="nav-praktek" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
+                <i class="fa-solid fa-award text-goldCustom"></i> Laporan Praktik
+            </button>
+            <button onclick="showSection('doa')" id="nav-doa" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
                 <i class="fa-solid fa-hands-praying"></i> Doa Harian
             </button>
             <button onclick="showSection('wudu')" id="nav-wudu" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
@@ -112,8 +115,115 @@
     <!-- KONTEN UTAMA MULTI-MODUL -->
     <main class="max-w-4xl mx-auto p-4 sm:p-6 space-y-8 min-h-[60vh]">
 
+        <!-- ================= 0. LAPORAN PRAKTIK DIGITAL & KARTU CAPAIAN ================= -->
+        <section id="sec-praktek" class="modul-section space-y-6">
+            <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                    <div class="w-10 h-10 rounded-2xl bg-emeraldCustom text-white flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base font-heading">Laporan Praktik Digital Ananda</h3>
+                        <p class="text-xs text-slate-500">Buat Kartu Capaian Digital & Laporkan Perkembangan ke Ustadzah</p>
+                    </div>
+                </div>
+
+                <form id="practiceForm" onsubmit="generateCertificate(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Nama Lengkap Ananda *</label>
+                            <input type="text" id="childName" required placeholder="Contoh: Muhammad Azzam" class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emeraldCustom focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Kelompok Belajar / Status *</label>
+                            <select id="childGrade" required class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emeraldCustom focus:outline-none">
+                                <option value="Kelompok TK - A">Kelompok TK - A</option>
+                                <option value="Kelompok TK - B">Kelompok TK - B</option>
+                                <option value="Playgroup / KB">Playgroup / KB</option>
+                                <option value="Calon Siswa PPDB">Calon Siswa (Umum)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Aktivitas Praktik Selesai *</label>
+                            <select id="activityType" required class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emeraldCustom focus:outline-none">
+                                <option value="Praktik Wudu Sempurna (Syafi'i)">Praktik Wudu Sempurna (Mazhab Syafi'i)</option>
+                                <option value="Lafal Niat & Bacaan Salat 5 Waktu">Lafal Niat & Bacaan Salat 5 Waktu</option>
+                                <option value="Hafalan Doa Sebelum & Sesudah Makan">Hafalan Doa Harian (Makan & Tidur)</option>
+                                <option value="Hafalan Doa Kedua Orang Tua & Belajar">Hafalan Doa Ortu & Belajar</option>
+                                <option value="Kuis Ibadah Interaktif Selesai">Kuis Ibadah Interaktif (Skor Sempurna)</option>
+                                <option value="Pembiasaan Salat Dhuha Bersama Ortu">Pembiasaan Salat Dhuha di Rumah</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Pemberian Bintang Evaluasi *</label>
+                            <select id="starRating" class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emeraldCustom focus:outline-none">
+                                <option value="⭐⭐⭐⭐⭐ (Sangat Mandiri & Lancar)">⭐⭐⭐⭐⭐ (Sangat Mandiri & Lancar)</option>
+                                <option value="⭐⭐⭐⭐ (Mandiri Dengan Bimbingan Singkat)">⭐⭐⭐⭐ (Bagus & Mandiri)</option>
+                                <option value="⭐⭐⭐ (Masih Perlu Pendampingan Ortu)">⭐⭐⭐ (Perlu Pendampingan Ortu)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Catatan Tambahan Ortu untuk Ustadzah</label>
+                        <input type="text" id="parentNotes" placeholder="Contoh: Azzam sudah hafal niat wudu dan tertib membasuh tangan sampai siku." class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emeraldCustom focus:outline-none">
+                    </div>
+
+                    <button type="submit" class="w-full bg-emeraldCustom hover:bg-emeraldDark text-white py-3.5 rounded-xl font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Kartu Capaian & Kirim Laporan
+                    </button>
+                </form>
+            </div>
+
+            <!-- PREVIEW KARTU CAPAIAN DIGITAL (DYNAMIC GENERATED) -->
+            <div id="certificateContainer" class="hidden">
+                <div class="bg-gradient-to-br from-emerald-800 via-emeraldDark to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-2xl border-4 border-goldCustom relative overflow-hidden space-y-4">
+                    <div class="flex justify-between items-start border-b border-white/20 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-goldCustom text-slate-900 font-bold flex items-center justify-center text-sm border-2 border-white shadow">TKIA</div>
+                            <div>
+                                <h4 class="font-bold text-goldCustom text-sm tracking-wide font-heading">KARTU CAPAIAN IBADAH DIGITAL</h4>
+                                <p class="text-[10px] text-emerald-200">TK Islam Al-Ikhlas Gandamekar, Cikarang Barat</p>
+                            </div>
+                        </div>
+                        <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/30">
+                            <i class="fa-solid fa-certificate text-goldCustom"></i> Terverifikasi
+                        </span>
+                    </div>
+
+                    <div class="text-center py-2 space-y-2">
+                        <p class="text-xs text-slate-300 uppercase tracking-widest font-semibold">Diberikan Kepada Bintang Cilik:</p>
+                        <h3 id="certChildName" class="text-2xl sm:text-3xl font-extrabold text-goldCustom font-heading tracking-wide">Muhammad Azzam</h3>
+                        <p id="certGrade" class="text-xs text-emerald-200 font-medium">Kelompok TK - A</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 text-center space-y-1">
+                        <p class="text-[11px] text-slate-300">Telah Menyelesaikan Praktik Mandiri:</p>
+                        <p id="certActivity" class="text-sm font-bold text-white">Praktik Wudu Sempurna (Mazhab Syafi'i)</p>
+                        <p id="certStars" class="text-base text-goldCustom pt-1">⭐⭐⭐⭐⭐</p>
+                    </div>
+
+                    <div id="certNotesBox" class="text-center italic text-xs text-slate-300 bg-black/20 p-2.5 rounded-xl border border-white/10">
+                        "<span id="certNotes">Azzam sudah tertib membasuh tangan sampai siku.</span>"
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button onclick="sendReportToWA()" class="flex-1 bg-emeraldCustom hover:bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs shadow-lg flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Laporan ke WA Ustadzah
+                        </button>
+                        <button onclick="window.print()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-3 rounded-xl font-bold text-xs border border-white/30 flex items-center justify-center gap-1.5 transition-all">
+                            <i class="fa-solid fa-print"></i> Cetak / Simpan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= 1. DOA HARIAN ================= -->
-        <section id="sec-doa" class="modul-section space-y-6">
+        <section id="sec-doa" class="modul-section hidden space-y-6">
             <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-bold text-emeraldDark font-heading">Kumpulan Doa Harian Anak</h3>
@@ -374,6 +484,9 @@
 
     <!-- MOBILE BOTTOM NAVIGATION -->
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2 px-3 flex justify-around items-center sm:hidden z-50 shadow-lg">
+        <button onclick="showSection('praktek')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
+            <i class="fa-solid fa-award text-sm text-goldCustom"></i> Laporan
+        </button>
         <button onclick="showSection('doa')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
             <i class="fa-solid fa-hands-praying text-sm"></i> Doa
         </button>
@@ -382,9 +495,6 @@
         </button>
         <button onclick="showSection('salat')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
             <i class="fa-solid fa-person-praying text-sm"></i> Salat
-        </button>
-        <button onclick="showSection('parenting')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
-            <i class="fa-solid fa-heart text-sm"></i> Ortu
         </button>
         <button onclick="showSection('layanan')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-amber-700 focus:text-goldCustom">
             <i class="fa-solid fa-laptop-code text-sm"></i> Jasa App
@@ -622,6 +732,53 @@
 
         function resetQuiz() {
             initQuiz();
+        }
+
+        // GENERATE KARTU CAPAIAN DIGITAL & REPORT WA
+        let currentReportData = {};
+
+        function generateCertificate(event) {
+            event.preventDefault();
+
+            const childName = document.getElementById('childName').value;
+            const childGrade = document.getElementById('childGrade').value;
+            const activityType = document.getElementById('activityType').value;
+            const starRating = document.getElementById('starRating').value;
+            const parentNotes = document.getElementById('parentNotes').value || "Praktik berjalan lancar di rumah.";
+
+            document.getElementById('certChildName').textContent = childName;
+            document.getElementById('certGrade').textContent = childGrade;
+            document.getElementById('certActivity').textContent = activityType;
+            document.getElementById('certStars').textContent = starRating;
+            document.getElementById('certNotes').textContent = parentNotes;
+
+            document.getElementById('certificateContainer').classList.remove('hidden');
+            document.getElementById('certificateContainer').scrollIntoView({ behavior: 'smooth' });
+
+            currentReportData = {
+                name: childName,
+                grade: childGrade,
+                activity: activityType,
+                stars: starRating,
+                notes: parentNotes
+            };
+        }
+
+        function sendReportToWA() {
+            if (!currentReportData.name) return;
+
+            const adminWA = "6285134961663";
+            const message = `*LAPORAN PRAKTIK IBADAH DIGITAL - TK ISLAM AL-IKHLAS*\n\n` +
+                `• *Nama Ananda:* ${currentReportData.name}\n` +
+                `• *Kelompok Belajar:* ${currentReportData.grade}\n` +
+                `• *Aktivitas Selesai:* ${currentReportData.activity}\n` +
+                `• *Evaluasi Ortu:* ${currentReportData.stars}\n` +
+                `• *Catatan Rumah:* "${currentReportData.notes}"\n\n` +
+                `_Mohon apresiasi dan motivasi dari Ustadzah untuk ananda. Terima kasih._\n\n` +
+                `*(Dikirim dari App Sahabat Wali Murid TKIA)*`;
+
+            const waUrl = `https://wa.me/${adminWA}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
         }
 
         // LOGIC JURNAL IBADAH
