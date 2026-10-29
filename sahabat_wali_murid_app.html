@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahabat Wali Murid | TK Islam Al-Ikhlas Gandamekar</title>
+    <meta name="description" content="Aplikasi edukasi ibadah anak & panduan wali murid TK Islam Al-Ikhlas Gandamekar berdasarkan Fikih Mazhab Syafi'i.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldCustom: '#10B981',
+                        emeraldDark: '#047857',
+                        goldCustom: '#F59E0B',
+                        goldHover: '#D97706',
+                        creamCustom: '#FFFBEB',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'cursive'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Fredoka', cursive; }
+        .font-arabic { font-family: 'Amiri', serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #10B981; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #047857; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-goldCustom selection:text-white pb-20 sm:pb-0">
+
+    <!-- TOP HEADER -->
+    <header class="bg-white border-b border-emerald-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emeraldDark text-goldCustom font-bold flex items-center justify-center text-xs border-2 border-goldCustom shadow-sm">
+                    TKIA
+                </div>
+                <div>
+                    <h1 class="text-base font-extrabold text-emeraldDark leading-none font-heading">Sahabat Wali Murid</h1>
+                    <span class="text-[10px] font-bold text-goldHover tracking-wider uppercase">Belajar • Ibadah • Tumbuh Bersama</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-emeraldCustom bg-slate-100 px-3 py-1.5 rounded-full transition-all">
+                    <i class="fa-solid fa-house text-emeraldCustom"></i> Website Utama
+                </a>
+                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Admin PPDB
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER HERO -->
+    <section class="bg-gradient-to-br from-emerald-700 via-emeraldDark to-slate-900 text-white py-8 px-4 text-center relative overflow-hidden">
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-goldCustom/20 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-emeraldCustom/30 rounded-full blur-2xl"></div>
+
+        <div class="max-w-3xl mx-auto space-y-3 relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-goldCustom border border-white/20 font-semibold">
+                <i class="fa-solid fa-book-quran"></i> Panduan Fikih Mazhab Syafi'i (PAUD/TK)
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-wide">
+                Membina Generasi Rabbani Sejak Dini
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto">
+                Edukasi ibadah mandiri untuk anak dan panduan pendampingan karakter Islami bagi keluarga besar TK Islam Al-Ikhlas Gandamekar.
+            </p>
+        </div>
+    </section>
+
+    <!-- NAVIGASI TAB MODUL MENU -->
+    <nav class="bg-white border-b border-slate-200 sticky top-[57px] z-30 shadow-xs">
+        <div class="max-w-5xl mx-auto px-2 overflow-x-auto scrollbar-none flex justify-start sm:justify-center gap-1 sm:gap-2 py-2">
+            <button onclick="showSection('doa')" id="nav-doa" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
+                <i class="fa-solid fa-hands-praying"></i> Doa Harian
+            </button>
+            <button onclick="showSection('wudu')" id="nav-wudu" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                <i class="fa-solid fa-droplet"></i> Belajar Wudu
+            </button>
+            <button onclick="showSection('salat')" id="nav-salat" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                <i class="fa-solid fa-person-praying"></i> Belajar Salat
+            </button>
+            <button onclick="showSection('kuis')" id="nav-kuis" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                <i class="fa-solid fa-gamepad text-goldCustom"></i> Kuis Ibadah
+            </button>
+            <button onclick="showSection('jurnal')" id="nav-jurnal" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                <i class="fa-solid fa-square-check"></i> Jurnal Ibadah
+            </button>
+            <button onclick="showSection('parenting')" id="nav-parenting" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                <i class="fa-solid fa-heart"></i> Panduan Ortu
+            </button>
+            <button onclick="showSection('layanan')" id="nav-layanan" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200">
+                <i class="fa-solid fa-laptop-code text-goldCustom"></i> Jasa App & Ebook
+            </button>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA MULTI-MODUL -->
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 space-y-8 min-h-[60vh]">
+
+        <!-- ================= 1. DOA HARIAN ================= -->
+        <section id="sec-doa" class="modul-section space-y-6">
+            <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-emeraldDark font-heading">Kumpulan Doa Harian Anak</h3>
+                    <p class="text-xs text-slate-600">Dengarkan, hafalkan, dan amalkan dalam kehidupan sehari-hari.</p>
+                </div>
+                <div class="w-10 h-10 bg-emeraldCustom text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="doa-container">
+                <!-- Doa items auto-generated by JS -->
+            </div>
+        </section>
+
+
+        <!-- ================= 2. BELAJAR WUDU ================= -->
+        <section id="sec-wudu" class="modul-section hidden space-y-6">
+            <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-blue-900 font-heading">Panduan Langkah Demi Langkah Wudu</h3>
+                    <p class="text-xs text-blue-700">Tata cara bersuci wudu tertib & sah sesuai Fikih Mazhab Syafi'i.</p>
+                </div>
+                <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+            </div>
+
+            <!-- CARD NIAT WUDU -->
+            <div class="bg-white p-6 rounded-3xl border border-blue-100 shadow-sm text-center space-y-3">
+                <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Langkah 1: Niat Wudu</span>
+                <p class="text-2xl font-arabic leading-loose text-slate-800" dir="rtl">نَوَيْتُ الْوُضُوءَ لِرَفْعِ الْحَدَثِ الْأَصْغَرِ فَرْضًا لِلَّهِ تَعَالَى</p>
+                <p class="text-xs font-bold text-emeraldDark italic">"Nawaitul wudhuu-a liraf'il hadatsil ashghari fardhan lillaahi ta'aala."</p>
+                <p class="text-xs text-slate-600">Artinya: Saya berniat wudu untuk menghilangkan hadas kecil, fardu karena Allah Ta'ala.</p>
+                <button onclick="speakText('Nawaitul wudhuu-a liraf\'il hadatsil ashghari fardhan lillaahi ta\'aala')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 mx-auto hover:bg-blue-700">
+                    <i class="fa-solid fa-volume-high"></i> Putar Lafal Niat
+                </button>
+            </div>
+
+            <!-- URUTAN WUDU -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="wudu-container">
+                <!-- Wudu steps auto-generated by JS -->
+            </div>
+        </section>
+
+
+        <!-- ================= 3. BELAJAR SALAT ================= -->
+        <section id="sec-salat" class="modul-section hidden space-y-6">
+            <div class="bg-purple-50 p-4 rounded-2xl border border-purple-100 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-purple-900 font-heading">Belajar Salat Wajib & Sunah</h3>
+                    <p class="text-xs text-purple-700">Panduan rakaat, bacaan, dan niat salat 5 waktu serta Dhuha.</p>
+                </div>
+                <div class="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-person-praying"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="salat-container">
+                <!-- Salat cards auto-generated by JS -->
+            </div>
+        </section>
+
+
+        <!-- ================= 4. KUIS IBADAH ================= -->
+        <section id="sec-kuis" class="modul-section hidden space-y-6">
+            <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-amber-900 font-heading">Kuis Interaktif Anak Soleh</h3>
+                    <p class="text-xs text-amber-700">Uji pemahaman doa, wudu, dan salat sambil bermain!</p>
+                </div>
+                <div class="w-10 h-10 bg-goldCustom text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-amber-100 shadow-md text-center max-w-xl mx-auto space-y-6">
+                <div class="flex justify-between items-center text-xs font-bold text-slate-500 border-b border-slate-100 pb-3">
+                    <span id="quiz-progress">Pertanyaan 1 dari 5</span>
+                    <span class="text-goldCustom"><i class="fa-solid fa-star"></i> Skor: <span id="quiz-score">0</span></span>
+                </div>
+
+                <div id="quiz-box" class="space-y-4">
+                    <p id="quiz-question" class="text-base sm:text-lg font-bold text-slate-800">Soal akan muncul di sini...</p>
+                    <div id="quiz-options" class="grid grid-cols-1 gap-2">
+                        <!-- Dynamic Options -->
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden space-y-4">
+                    <div class="text-5xl text-goldCustom"><i class="fa-solid fa-award"></i></div>
+                    <h4 class="text-xl font-bold text-slate-800 font-heading">Masya Allah, Hebat!</h4>
+                    <p class="text-sm text-slate-600">Nilai Akhir Kamu: <span id="final-score" class="font-extrabold text-emeraldDark text-lg">100</span></p>
+                    <button onclick="resetQuiz()" class="bg-emeraldCustom hover:bg-emeraldDark text-white px-6 py-3 rounded-2xl font-bold text-xs shadow-md transition-all">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= 5. JURNAL IBADAH ================= -->
+        <section id="sec-jurnal" class="modul-section hidden space-y-6">
+            <div class="bg-teal-50 p-4 rounded-2xl border border-teal-100 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-teal-900 font-heading">Jurnal Latihan Ibadah Keluarga</h3>
+                    <p class="text-xs text-teal-700">Centang pembiasaan ibadah harian ananda di rumah.</p>
+                </div>
+                <div class="w-10 h-10 bg-teal-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-100 pb-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Target Hari Ini (<span id="jurnal-date"></span>)</h4>
+                    <button onclick="resetJurnal()" class="text-xs text-red-500 font-semibold hover:underline">Reset Centang</button>
+                </div>
+
+                <div class="space-y-3" id="jurnal-list">
+                    <!-- Dynamic Checklist -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= 6. PANDUAN ORANG TUA ================= -->
+        <section id="sec-parenting" class="modul-section hidden space-y-6">
+            <div class="bg-rose-50 p-4 rounded-2xl border border-rose-100 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-rose-900 font-heading">Tips Membangun Kebiasaan Baik</h3>
+                    <p class="text-xs text-rose-700">Panduan pendampingan ibadah tanpa paksaan untuk anak PAUD/TK.</p>
+                </div>
+                <div class="w-10 h-10 bg-rose-500 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-emerald-100 text-emeraldDark flex items-center justify-center font-bold text-xs mb-1">1</span>
+                    <h4 class="font-bold text-slate-800 text-sm">Gunakan Teladan & Pujian Spesifik</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Anak meniru apa yang dilihat, bukan sekadar apa yang didengar. Berikan pujian langsung seperti "Masya Allah, pinter banget salat Subuhnya tepat waktu!"</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amber-100 text-goldCustom flex items-center justify-center font-bold text-xs mb-1">2</span>
+                    <h4 class="font-bold text-slate-800 text-sm">Suasana Menyenangkan (No Stress)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Usia TK adalah masa pengenalan dan pengondisian rasa cinta pada ibadah. Hindari membentak jika gerakan atau bacaan belum sempurna.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs mb-1">3</span>
+                    <h4 class="font-bold text-slate-800 text-sm">Jadikan Rutinitas yang Konsisten</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Kaitkan waktu ibadah dengan kegiatan harian, misalnya wudu sebelum tidur atau membaca Doa Sebelum Makan bersama di meja makan.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs mb-1">4</span>
+                    <h4 class="font-bold text-slate-800 text-sm">Sinergi dengan Program Sekolah</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Selaraskan hafalan dan pembiasaan salat Dhuha di rumah sesuai dengan kurikulum terpadu di TK Islam Al-Ikhlas Gandamekar.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= 7. SEKSI LAYANAN TIM DIGITAL AL-IKHLAS (FUNNEL MARKETING) ================= -->
+        <section id="sec-layanan" class="modul-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 via-emeraldDark to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-36 h-36 bg-goldCustom/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-3 text-center sm:text-left relative z-10">
+                    <span class="bg-goldCustom text-slate-900 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        <i class="fa-solid fa-rocket mr-1"></i> Layanan Pengembangan Digital Sekolah
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+                        Ingin Memiliki Aplikasi Belajar & Ebook Interaktif untuk Sekolah Anda?
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-200 max-w-2xl">
+                        Tim Digital Al-Ikhlas siap membantu sekolah, yayasan, dan pendidik jenjang <strong>TK, SD, SMP, hingga SMA</strong> dalam merancang media pembelajaran modern dan sistem digital terpadu.
+                    </p>
+                </div>
+
+                <!-- CARD PILIHAN JASA -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                    <div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-goldCustom text-slate-900 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base font-heading">1. Aplikasi Belajar Interaktif</h4>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Aplikasi web & mobile untuk jenjang <strong>TK, SD, SMP, SMA</strong>. Dilengkapi modul kuis, media pembelajaran audio-visual, hingga sistem laporan nilai/ibadah murid ke WhatsApp orang tua.
+                        </p>
+                        <ul class="text-[11px] text-emerald-200 space-y-1 font-semibold">
+                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Ramah HP & Tanpa Server Mahal</li>
+                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Terintegrasi WhatsApp Admin/Guru</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-emeraldCustom text-white flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base font-heading">2. Ebook & Modul Digital Interaktif</h4>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Pembuatan Ebook digital, buku saku hafalan, panduan kurikulum, dan modul pembelajaran sekolah berbasis flipped-classroom yang menarik dan mudah dibaca di smartphone.
+                        </p>
+                        <ul class="text-[11px] text-emerald-200 space-y-1 font-semibold">
+                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Tampilan Flipbook / Web Responsive</li>
+                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Disertai Audio Pelafalan & Video</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CALL TO ACTION (CTA) HUBUNGI TIM DIGITAL -->
+                <div class="bg-white text-slate-900 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10 shadow-lg">
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h4 class="font-bold text-base text-emeraldDark font-heading">Konsultasi Pembuatan App & Ebook Sekolah</h4>
+                        <p class="text-xs text-slate-600">Diskusikan kebutuhan sekolah Anda bersama Tim Digital Al-Ikhlas sekarang.</p>
+                    </div>
+                    <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Tim%20Digital%20Al-Ikhlas,%20saya%20tertarik%20konsultasi%20pembuatan%20Aplikasi%20Belajar%20/%20Ebook%20untuk%20sekolah." target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white font-bold px-6 py-3.5 rounded-xl shadow-md text-xs uppercase tracking-wider flex items-center gap-2 shrink-0 transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi Tim Digital Al-Ikhlas
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOSI HALUS PPDB AT BOTTOM OF LESSONS -->
+        <section class="bg-gradient-to-r from-emeraldDark to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 mt-12">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="bg-goldCustom text-slate-900 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">PPDB T.A. 2027/2028 DIBUKA</span>
+                <h3 class="text-xl sm:text-2xl font-bold font-heading">Tertarik dengan Pendekatan Karakter Kami?</h3>
+                <p class="text-xs text-slate-200 max-w-xl">Mari bergabung bersama keluarga besar TK Islam Al-Ikhlas Gandamekar, Cikarang Barat. Dapatkan pendidikan Islami & fasilitas belajar terbaik untuk si kecil.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                <a href="index.html#ppdb" class="bg-goldCustom hover:bg-goldHover text-white font-bold px-6 py-3 rounded-2xl shadow text-xs uppercase text-center transition-all">
+                    <i class="fa-solid fa-file-pen mr-1"></i> Info PPDB & Biaya
+                </a>
+                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin,%20saya%20tertarik%20bertanya%20tentang%20PPDB%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-white text-emeraldDark hover:bg-slate-100 font-bold px-6 py-3 rounded-2xl shadow text-xs uppercase text-center transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emeraldCustom text-base"></i> Tanya Admin
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER MODUL -->
+    <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs border-t border-slate-800">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <div class="flex justify-center items-center gap-2 text-white font-bold font-heading text-sm">
+                <div class="w-6 h-6 rounded-full bg-emeraldDark text-goldCustom flex items-center justify-center text-[10px] border border-goldCustom">TKIA</div>
+                <span>TK Islam Al-Ikhlas Gandamekar</span>
+            </div>
+            <p class="text-[11px] max-w-md mx-auto text-slate-500">Materi Fikih Ibadah diselaraskan dengan tuntunan Mazhab Syafi'i untuk pendidikan anak usia dini.</p>
+            <p>&copy; 2026 Tim Digital TK Islam Al-Ikhlas. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2 px-3 flex justify-around items-center sm:hidden z-50 shadow-lg">
+        <button onclick="showSection('doa')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
+            <i class="fa-solid fa-hands-praying text-sm"></i> Doa
+        </button>
+        <button onclick="showSection('wudu')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
+            <i class="fa-solid fa-droplet text-sm"></i> Wudu
+        </button>
+        <button onclick="showSection('salat')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
+            <i class="fa-solid fa-person-praying text-sm"></i> Salat
+        </button>
+        <button onclick="showSection('parenting')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
+            <i class="fa-solid fa-heart text-sm"></i> Ortu
+        </button>
+        <button onclick="showSection('layanan')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-amber-700 focus:text-goldCustom">
+            <i class="fa-solid fa-laptop-code text-sm"></i> Jasa App
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DATA DOA HARIAN
+        const doaData = [
+            {
+                title: "Doa Sebelum Makan",
+                arabic: "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
+                latin: "Allaahumma baarik lanaa fiimaa razaqtanaa wa qinaa 'adzaaban-naar.",
+                arti: "Ya Allah, berkahilah rezeki yang Engkau berikan kepada kami dan peliharalah kami dari siksa neraka.",
+                textAudio: "Allaahumma baarik lanaa fiimaa razaqtanaa wa qinaa adzaaban-naar."
+            },
+            {
+                title: "Doa Sesudah Makan",
+                arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
+                latin: "Alhamdu lillaahilladzi ath'amanaa wa saqaanaa wa ja'alanaa muslimiin.",
+                arti: "Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami orang-orang muslim.",
+                textAudio: "Alhamdu lillaahilladzi ath'amanaa wa saqaanaa wa ja'alanaa muslimiin."
+            },
+            {
+                title: "Doa Sebelum Tidur",
+                arabic: "بِاسْمِكَ اللَّهُمَّ أَحْيَا وَبِاسْمِكَ أَمُوتُ",
+                latin: "Bismikallaahumma ahyaa wa bismika amuut.",
+                arti: "Dengan menyebut nama-Mu ya Allah aku hidup dan dengan menyebut nama-Mu aku mati.",
+                textAudio: "Bismikallaahumma ahyaa wa bismika amuut."
+            },
+            {
+                title: "Doa Bangun Tidur",
+                arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+                latin: "Alhamdu lillaahilladzi ahyaanaa ba'da maa amaatanaa wa ilaihin-nusyuur.",
+                arti: "Segala puji bagi Allah yang menghidupkan kami kembali setelah mematikan kami dan kepada-Nya kami dibangkitkan.",
+                textAudio: "Alhamdu lillaahilladzi ahyaanaa ba'da maa amaatanaa wa ilaihin-nusyuur."
+            },
+            {
+                title: "Doa Untuk Kedua Orang Tua",
+                arabic: "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+                latin: "Rabbighfir lii wa liwaalidayya warhamhumaa kamaa rabbayaanii shaghiiraa.",
+                arti: "Ya Rabbku, ampunilah aku dan kedua orang tuaku, dan kasihilah keduanya sebagaimana mereka merawatku sewaktu kecil.",
+                textAudio: "Rabbighfir lii wa liwaalidayya warhamhumaa kamaa rabbayaanii shaghiiraa."
+            },
+            {
+                title: "Doa Belajar",
+                arabic: "رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا",
+                latin: "Rabbi zidnii 'ilman warzuqnii fahmaa.",
+                arti: "Ya Rabbku, tambahkanlah kepadaku ilmu pengetahuan dan berilah aku karunia untuk memahaminya.",
+                textAudio: "Rabbi zidnii ilman warzuqnii fahmaa."
+            }
+        ];
+
+        // DATA LANGKAH WUDU (MAZHAB SYAFI'I)
+        const wuduData = [
+            { step: "1", title: "Mencuci Kedua Telapak Tangan", desc: "Membaca Bismillah dan membasuh kedua telapak tangan hingga sela-sela jari 3 kali.", icon: "fa-hands-wash" },
+            { step: "2", title: "Berkumur-kumur", desc: "Meringankan kumur-kumur dan membersihkan mulut sebanyak 3 kali.", icon: "fa-mouth" },
+            { step: "3", title: "Membasuh Hidung (Istinsyaq)", desc: "Menghirup sedikit air ke hidung lalu mengeluarkannya sebanyak 3 kali.", icon: "fa-face-smile" },
+            { step: "4", title: "Membasuh Muka & Niat", desc: "Membasuh seluruh permukaan wajah dari batas tumbuh rambut hingga dagu sebanyak 3 kali disertai NIAT.", icon: "fa-user" },
+            { step: "5", title: "Membasuh Tangan Hingga Siku", desc: "Membasuh tangan kanan lalu tangan kiri hingga melewati siku sebanyak 3 kali.", icon: "fa-hand" },
+            { step: "6", title: "Mengaap Sebagian Kepala", desc: "Mengusap sebagian rambut/kepala dengan air sebanyak 3 kali.", icon: "fa-head-side" },
+            { step: "7", title: "Mengusap Kedua Telinga", desc: "Mengusap bagian luar dan dalam kedua telinga dengan air sebanyak 3 kali.", icon: "fa-ear-listen" },
+            { step: "8", title: "Membasuh Kaki Hingga Mata Kaki", desc: "Membasuh kaki kanan lalu kiri hingga mata kaki beserta sela-sela jari 3 kali.", icon: "fa-socks" },
+            { step: "9", title: "Tertib & Membaca Doa", desc: "Melakukan urutan dengan tertib (berurutan) lalu membaca doa setelah wudu.", icon: "fa-check-double" }
+        ];
+
+        // DATA SALAT (WAJIB & SUNAH)
+        const salatData = [
+            { name: "Salat Subuh", rakaat: "2 Rakaat", time: "Sebelum terbit fajar", niat: "أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhash-shubhi rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Dzuhur", rakaat: "4 Rakaat", time: "Siang hari", niat: "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhadz-dzuhri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Ashar", rakaat: "4 Rakaat", time: "Sore hari", niat: "أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal 'ashri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Maghrib", rakaat: "3 Rakaat", time: "Setelah matahari terbenam", niat: "أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal maghribi thalaatha raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Isya", rakaat: "4 Rakaat", time: "Malam hari", niat: "أُصَلِّي فَرْضَ الْعِشَاءِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal 'isyaa-i arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Dhuha (Sunah)", rakaat: "2 Rakaat", time: "Pagi hari (pukul 07.30 - 10.00)", niat: "أُصَلِّي سُنَّةَ الضُّحَى رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii sunnatadh-dhuhaa rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." }
+        ];
+
+        // DATA KUIS
+        const quizData = [
+            { question: "Berapakah jumlah rakaat Salat Subuh?", options: ["2 Rakaat", "3 Rakaat", "4 Rakaat"], answer: 0 },
+            { question: "Membasuh anggota wudu yang benar dimulai dari bagian mana?", options: ["Kiri dulu", "Kanan dulu", "Bebas"], answer: 1 },
+            { question: "Membaca 'Bismikallaahumma ahyaa wa bismika amuut' adalah doa...", options: ["Sebelum Makan", "Sebelum Tidur", "Bangun Tidur"], answer: 1 },
+            { question: "Dalam Fikih Mazhab Syafi'i, membasuh sebagian kepala saat wudu hukumnya...", options: ["Wajib / Fardu", "Sunah saja", "Dilarang"], answer: 0 },
+            { question: "Salat sunah yang biasa dilakukan pagi hari di TK Islam Al-Ikhlas adalah...", options: ["Salat Tahajud", "Salat Dhuha", "Salat Witir"], answer: 1 }
+        ];
+
+        // DATA JURNAL CHECKLIST
+        const jurnalItems = [
+            "Membaca Doa Sebelum & Sesudah Makan",
+            "Membaca Doa Sebelum Tidur",
+            "Latihan Wudu dengan Tertib",
+            "Ikut Salat Bersama Orang Tua",
+            "Infaq / Berbagi Kebaikan"
+        ];
+
+        // INIT FUNCTIONS
+        document.addEventListener("DOMContentLoaded", () => {
+            renderDoa();
+            renderWudu();
+            renderSalat();
+            initQuiz();
+            renderJurnal();
+        });
+
+        // SWITCH SECTION TAB
+        function showSection(secId) {
+            document.querySelectorAll('.modul-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`sec-${secId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-emeraldCustom', 'text-white', 'shadow');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeNav = document.getElementById(`nav-${secId}`);
+            if(activeNav) {
+                activeNav.classList.add('bg-emeraldCustom', 'text-white', 'shadow');
+                activeNav.classList.remove('text-slate-600');
+            }
+        }
+
+        // SPEECH SYNTHESIS (VOICE AUDIO)
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Fitur audio tidak didukung di browser ini.");
+            }
+        }
+
+        // RENDER DOA
+        function renderDoa() {
+            const container = document.getElementById('doa-container');
+            container.innerHTML = doaData.map((d, i) => `
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                        <span class="font-bold text-sm text-emeraldDark font-heading">${i+1}. ${d.title}</span>
+                        <button onclick="speakText('${d.textAudio}')" class="w-8 h-8 rounded-full bg-emerald-100 text-emeraldCustom flex items-center justify-center hover:bg-emeraldCustom hover:text-white transition-all text-xs" title="Putar Audio">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                    <p class="text-xl font-arabic text-right leading-loose text-slate-800" dir="rtl">${d.arabic}</p>
+                    <p class="text-xs font-bold text-emeraldDark italic">${d.latin}</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">${d.arti}</p>
+                </div>
+            `).join('');
+        }
+
+        // RENDER WUDU
+        function renderWudu() {
+            const container = document.getElementById('wudu-container');
+            container.innerHTML = wuduData.map(w => `
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto font-extrabold text-base">
+                        ${w.step}
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-xs">${w.title}</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">${w.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        // RENDER SALAT
+        function renderSalat() {
+            const container = document.getElementById('salat-container');
+            container.innerHTML = salatData.map(s => `
+                <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                        <div>
+                            <h4 class="font-bold text-sm text-purple-900 font-heading">${s.name}</h4>
+                            <span class="text-[10px] text-slate-500">${s.time}</span>
+                        </div>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-full">${s.rakaat}</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Lafal Niat:</span>
+                        <p class="text-base font-arabic text-right leading-relaxed text-slate-800" dir="rtl">${s.niat}</p>
+                        <p class="text-xs font-bold text-emeraldDark italic">${s.latin}</p>
+                    </div>
+                    <button onclick="speakText('${s.latin}')" class="w-full bg-purple-50 hover:bg-purple-100 text-purple-800 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-volume-high text-xs"></i> Putar Niat ${s.name}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // LOGIC KUIS
+        let currentQuizIdx = 0;
+        let score = 0;
+
+        function initQuiz() {
+            currentQuizIdx = 0;
+            score = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-box').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = quizData[currentQuizIdx];
+            document.getElementById('quiz-progress').textContent = `Pertanyaan ${currentQuizIdx + 1} dari ${quizData.length}`;
+            document.getElementById('quiz-score').textContent = score;
+            document.getElementById('quiz-question').textContent = q.question;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = q.options.map((opt, idx) => `
+                <button onclick="checkAnswer(${idx})" class="w-full bg-slate-100 hover:bg-emerald-50 hover:border-emeraldCustom border-2 border-transparent text-slate-800 font-semibold py-3 px-4 rounded-2xl text-xs sm:text-sm text-left transition-all flex items-center justify-between">
+                    <span>${opt}</span>
+                    <i class="fa-solid fa-circle-chevron-right text-slate-400"></i>
+                </button>
+            `).join('');
+        }
+
+        function checkAnswer(selectedIdx) {
+            if (selectedIdx === quizData[currentQuizIdx].answer) {
+                score += 20;
+                alert("Masya Allah, Jawabanmu Tepat! 🎉");
+            } else {
+                alert("Ayo Coba Lagi Ya! Semangat! 💪");
+            }
+
+            currentQuizIdx++;
+            if (currentQuizIdx < quizData.length) {
+                showQuestion();
+            } else {
+                document.getElementById('quiz-box').classList.add('hidden');
+                document.getElementById('quiz-result').classList.remove('hidden');
+                document.getElementById('final-score').textContent = score;
+            }
+        }
+
+        function resetQuiz() {
+            initQuiz();
+        }
+
+        // LOGIC JURNAL IBADAH
+        function renderJurnal() {
+            const dateStr = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('jurnal-date').textContent = dateStr;
+
+            const savedState = JSON.parse(localStorage.getItem('jurnal_ibadah_tkia') || '{}');
+            const container = document.getElementById('jurnal-list');
+
+            container.innerHTML = jurnalItems.map((item, idx) => {
+                const isChecked = savedState[idx] ? 'checked' : '';
+                return `
+                    <label class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-emerald-50/50 rounded-2xl border border-slate-100 cursor-pointer transition-all">
+                        <input type="checkbox" onchange="toggleJurnal(${idx})" ${isChecked} class="w-5 h-5 accent-emeraldCustom rounded-md cursor-pointer">
+                        <span class="text-xs sm:text-sm font-semibold text-slate-700">${item}</span>
+                    </label>
+                `;
+            }).join('');
+        }
+
+        function toggleJurnal(idx) {
+            const savedState = JSON.parse(localStorage.getItem('jurnal_ibadah_tkia') || '{}');
+            savedState[idx] = !savedState[idx];
+            localStorage.setItem('jurnal_ibadah_tkia', JSON.stringify(savedState));
+        }
+
+        function resetJurnal() {
+            if(confirm("Apakah Anda yakin ingin mengosongkan centang jurnal hari ini?")) {
+                localStorage.removeItem('jurnal_ibadah_tkia');
+                renderJurnal();
+            }
+        }
+    </script>
+</body>
+</html>
