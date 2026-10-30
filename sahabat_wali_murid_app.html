@@ -6,8 +6,7 @@
     <meta name="theme-color" content="#065F46">
     <title>Sahabat Wali Murid | TK Islam Al-Ikhlas Gandamekar</title>
     <meta name="description" content="Aplikasi edukasi ibadah anak & panduan wali murid TK Islam Al-Ikhlas Gandamekar berdasarkan Fikih Mazhab Syafi'i.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -57,8 +56,8 @@
 
     <!-- TOP HEADER -->
     <header class="bg-white border-b border-emerald-100 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
+        <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+            <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html" target="_blank" rel="noopener" class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-emeraldDark text-goldCustom font-bold flex items-center justify-center text-xs border-2 border-goldCustom shadow-sm">
                     TKIA
                 </div>
@@ -68,12 +67,15 @@
                 </div>
             </a>
             
-            <div class="flex items-center gap-2">
-                <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-emeraldCustom bg-slate-100 px-3 py-1.5 rounded-full transition-all">
-                    <i class="fa-solid fa-house text-emeraldCustom"></i> Website Utama
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-xs font-bold text-emeraldDark hover:text-white bg-emerald-50 hover:bg-emeraldCustom border border-emerald-200 px-3 py-2 rounded-full transition-all">
+                    <span aria-hidden="true" class="text-emeraldCustom">🏠</span> Website Utama
                 </a>
-                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all shadow-sm">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> Admin PPDB
+                <button onclick="showSection('layanan')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-2 rounded-full flex items-center gap-1.5 transition-all">
+                    <span aria-hidden="true">💻</span> Jasa App & Ebook
+                </button>
+                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white text-xs font-bold px-3 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-sm">
+                    <span aria-hidden="true" class="text-sm">💬</span> Admin PPDB
                 </a>
             </div>
         </div>
@@ -86,7 +88,7 @@
 
         <div class="max-w-3xl mx-auto space-y-3 relative z-10">
             <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-goldCustom border border-white/20 font-semibold">
-                <i class="fa-solid fa-book-quran"></i> Panduan Fikih Mazhab Syafi'i (PAUD/TK)
+                <span aria-hidden="true" class="">📖</span> Panduan Fikih Mazhab Syafi'i (PAUD/TK)
             </div>
             <h2 class="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-wide">
                 Membina Generasi Rabbani Sejak Dini
@@ -101,28 +103,25 @@
     <nav class="bg-white border-b border-slate-200 sticky top-[var(--hh,57px)] z-30 shadow-sm">
         <div class="max-w-5xl mx-auto px-2 overflow-x-auto scrollbar-none flex justify-start sm:justify-center gap-1 sm:gap-2 py-2">
             <button onclick="showSection('praktek')" id="nav-praktek" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
-                <i class="fa-solid fa-award text-goldCustom"></i> Laporan Praktik
+                <span aria-hidden="true" class="text-goldCustom">🏅</span> Laporan Praktik
             </button>
             <button onclick="showSection('doa')" id="nav-doa" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-hands-praying"></i> Doa Harian
+                <span aria-hidden="true" class="">🤲</span> Doa Harian
             </button>
             <button onclick="showSection('wudu')" id="nav-wudu" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-droplet"></i> Belajar Wudu
+                <span aria-hidden="true" class="">💧</span> Belajar Wudu
             </button>
             <button onclick="showSection('salat')" id="nav-salat" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-person-praying"></i> Belajar Salat
+                <span aria-hidden="true" class="">🕌</span> Belajar Salat
             </button>
             <button onclick="showSection('kuis')" id="nav-kuis" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-gamepad text-goldCustom"></i> Kuis Ibadah
+                <span aria-hidden="true" class="text-goldCustom">🎮</span> Kuis Ibadah
             </button>
             <button onclick="showSection('jurnal')" id="nav-jurnal" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-square-check"></i> Jurnal Ibadah
+                <span aria-hidden="true" class="">✅</span> Jurnal Ibadah
             </button>
             <button onclick="showSection('parenting')" id="nav-parenting" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-slate-600 hover:bg-slate-100">
-                <i class="fa-solid fa-heart"></i> Panduan Ortu
-            </button>
-            <button onclick="showSection('layanan')" id="nav-layanan" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200">
-                <i class="fa-solid fa-laptop-code text-goldCustom"></i> Jasa App & Ebook
+                <span aria-hidden="true" class="">❤️</span> Panduan Ortu
             </button>
         </div>
     </nav>
@@ -135,7 +134,7 @@
             <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 shadow-sm space-y-4">
                 <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
                     <div class="w-10 h-10 rounded-2xl bg-emeraldCustom text-white flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-award"></i>
+                        <span aria-hidden="true" class="">🏅</span>
                     </div>
                     <div>
                         <h3 class="font-bold text-slate-800 text-base font-heading">Laporan Praktik Digital Ananda</h3>
@@ -187,7 +186,7 @@
                     </div>
 
                     <button type="submit" class="w-full bg-emeraldCustom hover:bg-emeraldDark text-white py-3.5 rounded-xl font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Kartu Capaian & Kirim Laporan
+                        <span aria-hidden="true" class="">✨</span> Generate Kartu Capaian & Kirim Laporan
                     </button>
                 </form>
             </div>
@@ -204,7 +203,7 @@
                             </div>
                         </div>
                         <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/30">
-                            <i class="fa-solid fa-certificate text-goldCustom"></i> Dilaporkan Orang Tua
+                            <span aria-hidden="true" class="text-goldCustom">📜</span> Dilaporkan Orang Tua
                         </span>
                     </div>
 
@@ -226,10 +225,10 @@
 
                     <div class="flex flex-col sm:flex-row gap-3 pt-2">
                         <button onclick="sendReportToWA()" class="flex-1 bg-emeraldCustom hover:bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs shadow-lg flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Laporan ke WA Ustadzah
+                            <span aria-hidden="true" class="text-lg">💬</span> Kirim Laporan ke WA Ustadzah
                         </button>
                         <button onclick="window.print()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-3 rounded-xl font-bold text-xs border border-white/30 flex items-center justify-center gap-1.5 transition-all">
-                            <i class="fa-solid fa-print"></i> Cetak / Simpan
+                            <span aria-hidden="true" class="">🖨️</span> Cetak / Simpan
                         </button>
                     </div>
                 </div>
@@ -244,7 +243,7 @@
                     <p class="text-xs text-slate-600">Dengarkan, hafalkan, dan amalkan dalam kehidupan sehari-hari.</p>
                 </div>
                 <div class="w-10 h-10 bg-emeraldCustom text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-book-open"></i>
+                    <span aria-hidden="true" class="">📖</span>
                 </div>
             </div>
 
@@ -262,7 +261,7 @@
                     <p class="text-xs text-blue-700">Tata cara bersuci wudu tertib & sah sesuai Fikih Mazhab Syafi'i.</p>
                 </div>
                 <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-droplet"></i>
+                    <span aria-hidden="true" class="">💧</span>
                 </div>
             </div>
 
@@ -274,7 +273,7 @@
                 <p class="text-xs text-slate-600">Artinya: Saya berniat wudu untuk menghilangkan hadas kecil, fardu karena Allah Ta'ala.</p>
                 <p class="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-2">Catatan: lafal ini boleh dilatih di awal, tetapi niat dalam hati dilakukan bersamaan saat mulai membasuh muka (langkah 4).</p>
                 <button onclick="playAudio('wudu',0)" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 mx-auto hover:bg-blue-700">
-                    <i class="fa-solid fa-volume-high"></i> Putar Lafal Niat
+                    <span aria-hidden="true" class="">🔊</span> Putar Lafal Niat
                 </button>
             </div>
 
@@ -293,7 +292,7 @@
                     <p class="text-xs text-purple-700">Panduan waktu, rakaat, dan lafal niat salat 5 waktu serta Dhuha. Cek jadwal salat resmi wilayah Cikarang Barat untuk jam tepatnya.</p>
                 </div>
                 <div class="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-person-praying"></i>
+                    <span aria-hidden="true" class="">🕌</span>
                 </div>
             </div>
 
@@ -311,14 +310,14 @@
                     <p class="text-xs text-amber-700">Uji pemahaman doa, wudu, dan salat sambil bermain!</p>
                 </div>
                 <div class="w-10 h-10 bg-goldCustom text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-trophy"></i>
+                    <span aria-hidden="true" class="">🏆</span>
                 </div>
             </div>
 
             <div class="bg-white p-6 sm:p-8 rounded-3xl border border-amber-100 shadow-md text-center max-w-xl mx-auto space-y-6">
                 <div class="flex justify-between items-center text-xs font-bold text-slate-500 border-b border-slate-100 pb-3">
                     <span id="quiz-progress">Pertanyaan 1 dari 5</span>
-                    <span class="text-amber-700"><i class="fa-solid fa-star"></i> Skor: <span id="quiz-score">0</span></span>
+                    <span class="text-amber-700"><span aria-hidden="true" class="">⭐</span> Skor: <span id="quiz-score">0</span></span>
                 </div>
 
                 <div id="quiz-box" class="space-y-4">
@@ -329,11 +328,11 @@
                 </div>
 
                 <div id="quiz-result" class="hidden space-y-4">
-                    <div class="text-5xl text-goldCustom"><i class="fa-solid fa-award"></i></div>
+                    <div class="text-5xl text-goldCustom"><span aria-hidden="true" class="">🏅</span></div>
                     <h4 id="final-title" class="text-xl font-bold text-slate-800 font-heading">Masya Allah, Hebat!</h4>
                     <p class="text-sm text-slate-600">Nilai Akhir Kamu: <span id="final-score" class="font-extrabold text-emeraldDark text-lg">100</span></p>
                     <button onclick="resetQuiz()" class="bg-emeraldCustom hover:bg-emeraldDark text-white px-6 py-3 rounded-2xl font-bold text-xs shadow-md transition-all">
-                        <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                        <span aria-hidden="true" class="mr-1">🔄</span> Main Lagi
                     </button>
                     <button onclick="reportQuiz()" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-md transition-all">Laporkan ke Ustadzah</button>
                 </div>
@@ -349,7 +348,7 @@
                     <p class="text-xs text-teal-700">Centang pembiasaan ibadah harian ananda di rumah.</p>
                 </div>
                 <div class="w-10 h-10 bg-teal-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span aria-hidden="true" class="">📋</span>
                 </div>
             </div>
 
@@ -374,7 +373,7 @@
                     <p class="text-xs text-rose-700">Panduan pendampingan ibadah tanpa paksaan untuk anak PAUD/TK.</p>
                 </div>
                 <div class="w-10 h-10 bg-rose-500 text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                    <i class="fa-solid fa-heart"></i>
+                    <span aria-hidden="true" class="">❤️</span>
                 </div>
             </div>
 
@@ -413,7 +412,7 @@
                 
                 <div class="space-y-3 text-center sm:text-left relative z-10">
                     <span class="bg-goldCustom text-slate-900 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                        <i class="fa-solid fa-rocket mr-1"></i> Layanan Pengembangan Digital Sekolah
+                        <span aria-hidden="true" class="mr-1">🚀</span> Layanan Pengembangan Digital Sekolah
                     </span>
                     <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
                         Ingin Memiliki Aplikasi Belajar & Ebook Interaktif untuk Sekolah Anda?
@@ -427,29 +426,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
                     <div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 space-y-3">
                         <div class="w-10 h-10 rounded-xl bg-goldCustom text-slate-900 flex items-center justify-center font-bold text-lg">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <span aria-hidden="true" class="">📱</span>
                         </div>
                         <h4 class="font-bold text-white text-base font-heading">1. Aplikasi Belajar Interaktif</h4>
                         <p class="text-xs text-slate-200 leading-relaxed">
                             Aplikasi web & mobile untuk jenjang <strong>TK, SD, SMP, SMA</strong>. Dilengkapi modul kuis, media pembelajaran audio-visual, hingga sistem laporan nilai/ibadah murid ke WhatsApp orang tua.
                         </p>
                         <ul class="text-[11px] text-emerald-200 space-y-1 font-semibold">
-                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Ramah HP & Tanpa Server Mahal</li>
-                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Terintegrasi WhatsApp Admin/Guru</li>
+                            <li><span aria-hidden="true" class="text-goldCustom mr-1">✔️</span> Ramah HP & Tanpa Server Mahal</li>
+                            <li><span aria-hidden="true" class="text-goldCustom mr-1">✔️</span> Terintegrasi WhatsApp Admin/Guru</li>
                         </ul>
                     </div>
 
                     <div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 space-y-3">
                         <div class="w-10 h-10 rounded-xl bg-emeraldCustom text-white flex items-center justify-center font-bold text-lg">
-                            <i class="fa-solid fa-book-open-reader"></i>
+                            <span aria-hidden="true" class="">📚</span>
                         </div>
                         <h4 class="font-bold text-white text-base font-heading">2. Ebook & Modul Digital Interaktif</h4>
                         <p class="text-xs text-slate-200 leading-relaxed">
                             Pembuatan Ebook digital, buku saku hafalan, panduan kurikulum, dan modul pembelajaran sekolah berbasis flipped-classroom yang menarik dan mudah dibaca di smartphone.
                         </p>
                         <ul class="text-[11px] text-emerald-200 space-y-1 font-semibold">
-                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Tampilan Flipbook / Web Responsive</li>
-                            <li><i class="fa-solid fa-check text-goldCustom mr-1"></i> Disertai Audio Pelafalan & Video</li>
+                            <li><span aria-hidden="true" class="text-goldCustom mr-1">✔️</span> Tampilan Flipbook / Web Responsive</li>
+                            <li><span aria-hidden="true" class="text-goldCustom mr-1">✔️</span> Disertai Audio Pelafalan & Video</li>
                         </ul>
                     </div>
                 </div>
@@ -461,7 +460,7 @@
                         <p class="text-xs text-slate-600">Diskusikan kebutuhan sekolah Anda bersama Tim Digital Al-Ikhlas sekarang.</p>
                     </div>
                     <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Tim%20Digital%20Al-Ikhlas,%20saya%20tertarik%20konsultasi%20pembuatan%20Aplikasi%20Belajar%20/%20Ebook%20untuk%20sekolah." target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white font-bold px-6 py-3.5 rounded-xl shadow-md text-xs uppercase tracking-wider flex items-center gap-2 shrink-0 transition-all">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi Tim Digital Al-Ikhlas
+                        <span aria-hidden="true" class="text-lg">💬</span> Hubungi Tim Digital Al-Ikhlas
                     </a>
                 </div>
             </div>
@@ -475,11 +474,11 @@
                 <p class="text-xs text-slate-200 max-w-xl">Mari bergabung bersama keluarga besar TK Islam Al-Ikhlas Gandamekar, Cikarang Barat. Dapatkan pendidikan Islami & fasilitas belajar terbaik untuk si kecil.</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
-                <a href="index.html#ppdb" class="bg-goldCustom hover:bg-goldHover text-white font-bold px-6 py-3 rounded-2xl shadow text-xs uppercase text-center transition-all">
-                    <i class="fa-solid fa-file-pen mr-1"></i> Info PPDB & Biaya
+                <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html#ppdb" target="_blank" rel="noopener" class="bg-goldCustom hover:bg-goldHover text-white font-bold px-6 py-3 rounded-2xl shadow text-xs uppercase text-center transition-all">
+                    <span aria-hidden="true" class="mr-1">📝</span> Info PPDB & Biaya
                 </a>
                 <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin,%20saya%20tertarik%20bertanya%20tentang%20PPDB%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-white text-emeraldDark hover:bg-slate-100 font-bold px-6 py-3 rounded-2xl shadow text-xs uppercase text-center transition-all flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-emeraldCustom text-base"></i> Tanya Admin
+                    <span aria-hidden="true" class="text-emeraldCustom text-base">💬</span> Tanya Admin
                 </a>
             </div>
         </section>
@@ -500,13 +499,13 @@
 
     <!-- MOBILE BOTTOM NAVIGATION -->
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-1 pt-1 flex sm:hidden z-50 shadow-lg" style="padding-bottom:max(4px,env(safe-area-inset-bottom))">
-        <button onclick="showSection('praktek')" data-sec="praktek" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-award text-base"></i>Laporan</button>
-        <button onclick="showSection('doa')" data-sec="doa" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-hands-praying text-base"></i>Doa</button>
-        <button onclick="showSection('wudu')" data-sec="wudu" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-droplet text-base"></i>Wudu</button>
-        <button onclick="showSection('salat')" data-sec="salat" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-person-praying text-base"></i>Salat</button>
-        <button onclick="showSection('kuis')" data-sec="kuis" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-gamepad text-base"></i>Kuis</button>
-        <button onclick="showSection('jurnal')" data-sec="jurnal" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-square-check text-base"></i>Jurnal</button>
-        <button onclick="showSection('parenting')" data-sec="parenting" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-heart text-base"></i>Ortu</button>
+        <button onclick="showSection('praktek')" data-sec="praktek" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">🏅</span>Laporan</button>
+        <button onclick="showSection('doa')" data-sec="doa" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">🤲</span>Doa</button>
+        <button onclick="showSection('wudu')" data-sec="wudu" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">💧</span>Wudu</button>
+        <button onclick="showSection('salat')" data-sec="salat" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">🕌</span>Salat</button>
+        <button onclick="showSection('kuis')" data-sec="kuis" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">🎮</span>Kuis</button>
+        <button onclick="showSection('jurnal')" data-sec="jurnal" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">✅</span>Jurnal</button>
+        <button onclick="showSection('parenting')" data-sec="parenting" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><span aria-hidden="true" class="text-base">❤️</span>Ortu</button>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -617,7 +616,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             renderDoa(); renderWudu(); renderSalat(); initQuiz(); renderJurnal();
             const setHH = () => document.documentElement.style.setProperty('--hh', document.querySelector('header').offsetHeight + 'px');
-            setHH(); window.addEventListener('resize', setHH);
+            setHH(); window.addEventListener('resize', setHH); window.addEventListener('load', setHH);
             showSection(fromHash(), false);
         });
         window.addEventListener('popstate', () => showSection(fromHash(), false));
@@ -672,7 +671,7 @@
                     <div class="flex justify-between items-center border-b border-slate-100 pb-2">
                         <span class="font-bold text-sm text-emeraldDark font-heading">${i+1}. ${d.title}</span>
                         <button onclick="playAudio('doa',${i})" class="w-11 h-11 rounded-full bg-emerald-100 text-emeraldCustom flex items-center justify-center hover:bg-emeraldCustom hover:text-white transition-all text-xs" title="Putar Audio">
-                            <i class="fa-solid fa-volume-high"></i>
+                            <span aria-hidden="true" class="">🔊</span>
                         </button>
                     </div>
                     <p class="text-xl font-arabic text-right leading-loose text-slate-800" dir="rtl">${d.arabic}</p>
@@ -714,7 +713,7 @@
                         <p class="text-xs font-bold text-emeraldDark italic">${s.latin}</p>
                     </div>
                     <button onclick="playAudio('salat',${i})" class="w-full bg-purple-50 hover:bg-purple-100 text-purple-800 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-volume-high text-xs"></i> Putar Niat ${s.name}
+                        <span aria-hidden="true" class="text-xs">🔊</span> Putar Niat ${s.name}
                     </button>
                 </div>
             `).join('');
