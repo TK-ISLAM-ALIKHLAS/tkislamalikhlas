@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#065F46">
     <title>Sahabat Wali Murid | TK Islam Al-Ikhlas Gandamekar</title>
     <meta name="description" content="Aplikasi edukasi ibadah anak & panduan wali murid TK Islam Al-Ikhlas Gandamekar berdasarkan Fikih Mazhab Syafi'i.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,10 +14,10 @@
             theme: {
                 extend: {
                     colors: {
-                        emeraldCustom: '#10B981',
-                        emeraldDark: '#047857',
+                        emeraldCustom: '#047857',
+                        emeraldDark: '#065F46',
                         goldCustom: '#F59E0B',
-                        goldHover: '#D97706',
+                        goldHover: '#B45309',
                         creamCustom: '#FFFBEB',
                     },
                     fontFamily: {
@@ -36,9 +37,23 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #10B981; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #047857; }
+    
+        .text-\[10px\]{font-size:12px!important}
+        .text-\[11px\]{font-size:13px!important}
+        .text-xs{font-size:14px!important;line-height:1.4!important}
+        button{min-height:44px}
+        .scrollbar-none{scrollbar-width:none}
+        .scrollbar-none::-webkit-scrollbar{display:none}
+        @media print{
+            *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            body *{visibility:hidden}
+            #certificateContainer,#certificateContainer *{visibility:visible}
+            #certificateContainer{position:absolute;left:0;top:0;width:100%}
+            #certificateContainer button{display:none!important}
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-goldCustom selection:text-white pb-20 sm:pb-0">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-goldCustom selection:text-white pb-24 sm:pb-0">
 
     <!-- TOP HEADER -->
     <header class="bg-white border-b border-emerald-100 sticky top-0 z-40 shadow-sm">
@@ -83,7 +98,7 @@
     </section>
 
     <!-- NAVIGASI TAB MODUL MENU -->
-    <nav class="bg-white border-b border-slate-200 sticky top-[57px] z-30 shadow-xs">
+    <nav class="bg-white border-b border-slate-200 sticky top-[var(--hh,57px)] z-30 shadow-sm">
         <div class="max-w-5xl mx-auto px-2 overflow-x-auto scrollbar-none flex justify-start sm:justify-center gap-1 sm:gap-2 py-2">
             <button onclick="showSection('praktek')" id="nav-praktek" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
                 <i class="fa-solid fa-award text-goldCustom"></i> Laporan Praktik
@@ -153,7 +168,6 @@
                                 <option value="Lafal Niat & Bacaan Salat 5 Waktu">Lafal Niat & Bacaan Salat 5 Waktu</option>
                                 <option value="Hafalan Doa Sebelum & Sesudah Makan">Hafalan Doa Harian (Makan & Tidur)</option>
                                 <option value="Hafalan Doa Kedua Orang Tua & Belajar">Hafalan Doa Ortu & Belajar</option>
-                                <option value="Kuis Ibadah Interaktif Selesai">Kuis Ibadah Interaktif (Skor Sempurna)</option>
                                 <option value="Pembiasaan Salat Dhuha Bersama Ortu">Pembiasaan Salat Dhuha di Rumah</option>
                             </select>
                         </div>
@@ -190,7 +204,7 @@
                             </div>
                         </div>
                         <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/30">
-                            <i class="fa-solid fa-certificate text-goldCustom"></i> Terverifikasi
+                            <i class="fa-solid fa-certificate text-goldCustom"></i> Dilaporkan Orang Tua
                         </span>
                     </div>
 
@@ -254,11 +268,12 @@
 
             <!-- CARD NIAT WUDU -->
             <div class="bg-white p-6 rounded-3xl border border-blue-100 shadow-sm text-center space-y-3">
-                <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Langkah 1: Niat Wudu</span>
+                <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-3 py-1 rounded-full uppercase">Lafal Niat Wudu</span>
                 <p class="text-2xl font-arabic leading-loose text-slate-800" dir="rtl">نَوَيْتُ الْوُضُوءَ لِرَفْعِ الْحَدَثِ الْأَصْغَرِ فَرْضًا لِلَّهِ تَعَالَى</p>
                 <p class="text-xs font-bold text-emeraldDark italic">"Nawaitul wudhuu-a liraf'il hadatsil ashghari fardhan lillaahi ta'aala."</p>
                 <p class="text-xs text-slate-600">Artinya: Saya berniat wudu untuk menghilangkan hadas kecil, fardu karena Allah Ta'ala.</p>
-                <button onclick="speakText('Nawaitul wudhuu-a liraf\'il hadatsil ashghari fardhan lillaahi ta\'aala')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 mx-auto hover:bg-blue-700">
+                <p class="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-2">Catatan: lafal ini boleh dilatih di awal, tetapi niat dalam hati dilakukan bersamaan saat mulai membasuh muka (langkah 4).</p>
+                <button onclick="playAudio('wudu',0)" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 mx-auto hover:bg-blue-700">
                     <i class="fa-solid fa-volume-high"></i> Putar Lafal Niat
                 </button>
             </div>
@@ -275,7 +290,7 @@
             <div class="bg-purple-50 p-4 rounded-2xl border border-purple-100 flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-bold text-purple-900 font-heading">Belajar Salat Wajib & Sunah</h3>
-                    <p class="text-xs text-purple-700">Panduan rakaat, bacaan, dan niat salat 5 waktu serta Dhuha.</p>
+                    <p class="text-xs text-purple-700">Panduan waktu, rakaat, dan lafal niat salat 5 waktu serta Dhuha. Cek jadwal salat resmi wilayah Cikarang Barat untuk jam tepatnya.</p>
                 </div>
                 <div class="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
                     <i class="fa-solid fa-person-praying"></i>
@@ -303,7 +318,7 @@
             <div class="bg-white p-6 sm:p-8 rounded-3xl border border-amber-100 shadow-md text-center max-w-xl mx-auto space-y-6">
                 <div class="flex justify-between items-center text-xs font-bold text-slate-500 border-b border-slate-100 pb-3">
                     <span id="quiz-progress">Pertanyaan 1 dari 5</span>
-                    <span class="text-goldCustom"><i class="fa-solid fa-star"></i> Skor: <span id="quiz-score">0</span></span>
+                    <span class="text-amber-700"><i class="fa-solid fa-star"></i> Skor: <span id="quiz-score">0</span></span>
                 </div>
 
                 <div id="quiz-box" class="space-y-4">
@@ -315,11 +330,12 @@
 
                 <div id="quiz-result" class="hidden space-y-4">
                     <div class="text-5xl text-goldCustom"><i class="fa-solid fa-award"></i></div>
-                    <h4 class="text-xl font-bold text-slate-800 font-heading">Masya Allah, Hebat!</h4>
+                    <h4 id="final-title" class="text-xl font-bold text-slate-800 font-heading">Masya Allah, Hebat!</h4>
                     <p class="text-sm text-slate-600">Nilai Akhir Kamu: <span id="final-score" class="font-extrabold text-emeraldDark text-lg">100</span></p>
                     <button onclick="resetQuiz()" class="bg-emeraldCustom hover:bg-emeraldDark text-white px-6 py-3 rounded-2xl font-bold text-xs shadow-md transition-all">
                         <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
                     </button>
+                    <button onclick="reportQuiz()" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-md transition-all">Laporkan ke Ustadzah</button>
                 </div>
             </div>
         </section>
@@ -483,22 +499,14 @@
     </footer>
 
     <!-- MOBILE BOTTOM NAVIGATION -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2 px-3 flex justify-around items-center sm:hidden z-50 shadow-lg">
-        <button onclick="showSection('praktek')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
-            <i class="fa-solid fa-award text-sm text-goldCustom"></i> Laporan
-        </button>
-        <button onclick="showSection('doa')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
-            <i class="fa-solid fa-hands-praying text-sm"></i> Doa
-        </button>
-        <button onclick="showSection('wudu')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
-            <i class="fa-solid fa-droplet text-sm"></i> Wudu
-        </button>
-        <button onclick="showSection('salat')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-600 focus:text-emeraldCustom">
-            <i class="fa-solid fa-person-praying text-sm"></i> Salat
-        </button>
-        <button onclick="showSection('layanan')" class="flex flex-col items-center gap-1 text-[10px] font-bold text-amber-700 focus:text-goldCustom">
-            <i class="fa-solid fa-laptop-code text-sm"></i> Jasa App
-        </button>
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-1 pt-1 flex sm:hidden z-50 shadow-lg" style="padding-bottom:max(4px,env(safe-area-inset-bottom))">
+        <button onclick="showSection('praktek')" data-sec="praktek" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-award text-base"></i>Laporan</button>
+        <button onclick="showSection('doa')" data-sec="doa" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-hands-praying text-base"></i>Doa</button>
+        <button onclick="showSection('wudu')" data-sec="wudu" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-droplet text-base"></i>Wudu</button>
+        <button onclick="showSection('salat')" data-sec="salat" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-person-praying text-base"></i>Salat</button>
+        <button onclick="showSection('kuis')" data-sec="kuis" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-gamepad text-base"></i>Kuis</button>
+        <button onclick="showSection('jurnal')" data-sec="jurnal" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-square-check text-base"></i>Jurnal</button>
+        <button onclick="showSection('parenting')" data-sec="parenting" class="bn-btn flex-1 flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold text-slate-500"><i class="fa-solid fa-heart text-base"></i>Ortu</button>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -546,38 +554,44 @@
                 latin: "Rabbi zidnii 'ilman warzuqnii fahmaa.",
                 arti: "Ya Rabbku, tambahkanlah kepadaku ilmu pengetahuan dan berilah aku karunia untuk memahaminya.",
                 textAudio: "Rabbi zidnii ilman warzuqnii fahmaa."
+            },
+            {
+                title: "Doa Setelah Wudu",
+                arabic: "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+                latin: "Asyhadu allaa ilaaha illallaahu wahdahu laa syariikalah, wa asyhadu anna Muhammadan 'abduhu wa rasuuluh.",
+                arti: "Aku bersaksi bahwa tiada tuhan selain Allah semata, tiada sekutu bagi-Nya, dan aku bersaksi bahwa Muhammad adalah hamba dan utusan-Nya."
             }
         ];
 
         // DATA LANGKAH WUDU (MAZHAB SYAFI'I)
         const wuduData = [
             { step: "1", title: "Mencuci Kedua Telapak Tangan", desc: "Membaca Bismillah dan membasuh kedua telapak tangan hingga sela-sela jari 3 kali.", icon: "fa-hands-wash" },
-            { step: "2", title: "Berkumur-kumur", desc: "Meringankan kumur-kumur dan membersihkan mulut sebanyak 3 kali.", icon: "fa-mouth" },
+            { step: "2", title: "Berkumur-kumur", desc: "Berkumur dan membersihkan mulut sebanyak 3 kali.", icon: "fa-mouth" },
             { step: "3", title: "Membasuh Hidung (Istinsyaq)", desc: "Menghirup sedikit air ke hidung lalu mengeluarkannya sebanyak 3 kali.", icon: "fa-face-smile" },
             { step: "4", title: "Membasuh Muka & Niat", desc: "Membasuh seluruh permukaan wajah dari batas tumbuh rambut hingga dagu sebanyak 3 kali disertai NIAT.", icon: "fa-user" },
             { step: "5", title: "Membasuh Tangan Hingga Siku", desc: "Membasuh tangan kanan lalu tangan kiri hingga melewati siku sebanyak 3 kali.", icon: "fa-hand" },
-            { step: "6", title: "Mengaap Sebagian Kepala", desc: "Mengusap sebagian rambut/kepala dengan air sebanyak 3 kali.", icon: "fa-head-side" },
+            { step: "6", title: "Mengusap Sebagian Kepala", desc: "Mengusap sebagian rambut/kepala dengan air sebanyak 3 kali.", icon: "fa-head-side" },
             { step: "7", title: "Mengusap Kedua Telinga", desc: "Mengusap bagian luar dan dalam kedua telinga dengan air sebanyak 3 kali.", icon: "fa-ear-listen" },
             { step: "8", title: "Membasuh Kaki Hingga Mata Kaki", desc: "Membasuh kaki kanan lalu kiri hingga mata kaki beserta sela-sela jari 3 kali.", icon: "fa-socks" },
-            { step: "9", title: "Tertib & Membaca Doa", desc: "Melakukan urutan dengan tertib (berurutan) lalu membaca doa setelah wudu.", icon: "fa-check-double" }
+            { step: "9", title: "Tertib & Membaca Doa", desc: "Melakukan urutan dengan tertib (berurutan) lalu membaca Doa Setelah Wudu (ada di menu Doa Harian).", icon: "fa-check-double" }
         ];
 
         // DATA SALAT (WAJIB & SUNAH)
         const salatData = [
-            { name: "Salat Subuh", rakaat: "2 Rakaat", time: "Sebelum terbit fajar", niat: "أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhash-shubhi rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." },
-            { name: "Salat Dzuhur", rakaat: "4 Rakaat", time: "Siang hari", niat: "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhadz-dzuhri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
-            { name: "Salat Ashar", rakaat: "4 Rakaat", time: "Sore hari", niat: "أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal 'ashri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Subuh", rakaat: "2 Rakaat", time: "Sejak terbit fajar hingga matahari terbit", niat: "أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhash-shubhi rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Dzuhur", rakaat: "4 Rakaat", time: "Setelah matahari tergelincir (siang)", niat: "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhadz-dzuhri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
+            { name: "Salat Ashar", rakaat: "4 Rakaat", time: "Sore hari, hingga menjelang matahari terbenam", niat: "أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal 'ashri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
             { name: "Salat Maghrib", rakaat: "3 Rakaat", time: "Setelah matahari terbenam", niat: "أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal maghribi thalaatha raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
             { name: "Salat Isya", rakaat: "4 Rakaat", time: "Malam hari", niat: "أُصَلِّي فَرْضَ الْعِشَاءِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii fardhal 'isyaa-i arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi ta'aala." },
-            { name: "Salat Dhuha (Sunah)", rakaat: "2 Rakaat", time: "Pagi hari (pukul 07.30 - 10.00)", niat: "أُصَلِّي سُنَّةَ الضُّحَى رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii sunnatadh-dhuhaa rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." }
+            { name: "Salat Dhuha (Sunah)", rakaat: "2 Rakaat", time: "Pagi hari (kira-kira pukul 07.30 - 10.00)", niat: "أُصَلِّي سُنَّةَ الضُّحَى رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَى", latin: "Ushallii sunnatadh-dhuhaa rak'ataini mustaqbilal qiblati adaa-an lillaahi ta'aala." }
         ];
 
         // DATA KUIS
         const quizData = [
             { question: "Berapakah jumlah rakaat Salat Subuh?", options: ["2 Rakaat", "3 Rakaat", "4 Rakaat"], answer: 0 },
-            { question: "Membasuh anggota wudu yang benar dimulai dari bagian mana?", options: ["Kiri dulu", "Kanan dulu", "Bebas"], answer: 1 },
+            { question: "Saat membasuh tangan dan kaki dalam wudu, sunahnya kita mendahulukan yang...", options: ["Kiri", "Kanan", "Bebas"], answer: 1 },
             { question: "Membaca 'Bismikallaahumma ahyaa wa bismika amuut' adalah doa...", options: ["Sebelum Makan", "Sebelum Tidur", "Bangun Tidur"], answer: 1 },
-            { question: "Dalam Fikih Mazhab Syafi'i, membasuh sebagian kepala saat wudu hukumnya...", options: ["Wajib / Fardu", "Sunah saja", "Dilarang"], answer: 0 },
+            { question: "Dalam Fikih Mazhab Syafi'i, mengusap sebagian kepala saat wudu hukumnya...", options: ["Wajib / Fardu", "Sunah saja", "Dilarang"], answer: 0 },
             { question: "Salat sunah yang biasa dilakukan pagi hari di TK Islam Al-Ikhlas adalah...", options: ["Salat Tahajud", "Salat Dhuha", "Salat Witir"], answer: 1 }
         ];
 
@@ -590,43 +604,64 @@
             "Infaq / Berbagi Kebaikan"
         ];
 
-        // INIT FUNCTIONS
-        document.addEventListener("DOMContentLoaded", () => {
-            renderDoa();
-            renderWudu();
-            renderSalat();
-            initQuiz();
-            renderJurnal();
-        });
+        const NIAT_WUDU = "نَوَيْتُ الْوُضُوءَ لِرَفْعِ الْحَدَثِ الْأَصْغَرِ فَرْضًا لِلَّهِ تَعَالَى";
+        const WUDU_EMOJI = ['🤲','👄','👃','🙂','💪','🧒','👂','🦶','✅'];
+        const SECTIONS = ['praktek','doa','wudu','salat','kuis','jurnal','parenting','layanan'];
+        const store = {
+            get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+            del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+        };
+        const fromHash = () => { const h = location.hash.slice(1); return SECTIONS.includes(h) ? h : 'praktek'; };
 
-        // SWITCH SECTION TAB
-        function showSection(secId) {
+        document.addEventListener("DOMContentLoaded", () => {
+            renderDoa(); renderWudu(); renderSalat(); initQuiz(); renderJurnal();
+            const setHH = () => document.documentElement.style.setProperty('--hh', document.querySelector('header').offsetHeight + 'px');
+            setHH(); window.addEventListener('resize', setHH);
+            showSection(fromHash(), false);
+        });
+        window.addEventListener('popstate', () => showSection(fromHash(), false));
+
+        function showSection(secId, push = true) {
             document.querySelectorAll('.modul-section').forEach(sec => sec.classList.add('hidden'));
             document.getElementById(`sec-${secId}`).classList.remove('hidden');
-
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('bg-emeraldCustom', 'text-white', 'shadow');
                 btn.classList.add('text-slate-600');
             });
-
             const activeNav = document.getElementById(`nav-${secId}`);
-            if(activeNav) {
+            if (activeNav) {
                 activeNav.classList.add('bg-emeraldCustom', 'text-white', 'shadow');
                 activeNav.classList.remove('text-slate-600');
+                activeNav.scrollIntoView({ inline: 'center', block: 'nearest' });
             }
+            document.querySelectorAll('.bn-btn').forEach(b => {
+                const on = b.dataset.sec === secId;
+                b.classList.toggle('text-emeraldCustom', on);
+                b.classList.toggle('text-slate-500', !on);
+            });
+            if (push && location.hash !== '#' + secId) history.pushState(null, '', '#' + secId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // SPEECH SYNTHESIS (VOICE AUDIO)
+        // Ubah ke true setelah folder audio/ berisi rekaman MP3 (doa-0.mp3, salat-0.mp3, wudu-0.mp3, dst.)
+        const PAKAI_REKAMAN = false;
+        // AUDIO: pakai rekaman audio/<jenis>-<nomor>.mp3 bila ada; jika tidak, suara browser (Arab)
         function speakText(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'id-ID';
-                utterance.rate = 0.85;
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("Fitur audio tidak didukung di browser ini.");
-            }
+            if (!('speechSynthesis' in window)) { alert("Fitur audio tidak didukung di browser ini."); return; }
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'ar-SA'; u.rate = 0.8;
+            window.speechSynthesis.speak(u);
+        }
+        function playAudio(kind, i) {
+            const arabic = kind === 'doa' ? doaData[i].arabic : kind === 'salat' ? salatData[i].niat : NIAT_WUDU;
+            if (window.__audio) window.__audio.pause();
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            if (!PAKAI_REKAMAN) { speakText(arabic); return; }
+            const a = new Audio(`audio/${kind}-${i}.mp3`);
+            window.__audio = a;
+            a.play().catch(() => speakText(arabic));
         }
 
         // RENDER DOA
@@ -636,7 +671,7 @@
                 <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all space-y-3">
                     <div class="flex justify-between items-center border-b border-slate-100 pb-2">
                         <span class="font-bold text-sm text-emeraldDark font-heading">${i+1}. ${d.title}</span>
-                        <button onclick="speakText('${d.textAudio}')" class="w-8 h-8 rounded-full bg-emerald-100 text-emeraldCustom flex items-center justify-center hover:bg-emeraldCustom hover:text-white transition-all text-xs" title="Putar Audio">
+                        <button onclick="playAudio('doa',${i})" class="w-11 h-11 rounded-full bg-emerald-100 text-emeraldCustom flex items-center justify-center hover:bg-emeraldCustom hover:text-white transition-all text-xs" title="Putar Audio">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
                     </div>
@@ -652,10 +687,10 @@
             const container = document.getElementById('wudu-container');
             container.innerHTML = wuduData.map(w => `
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
-                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto font-extrabold text-base">
-                        ${w.step}
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto font-extrabold text-2xl">
+                        ${WUDU_EMOJI[w.step - 1]}
                     </div>
-                    <h4 class="font-bold text-slate-800 text-xs">${w.title}</h4>
+                    <h4 class="font-bold text-slate-800 text-sm">${w.step}. ${w.title}</h4>
                     <p class="text-[11px] text-slate-500 leading-relaxed">${w.desc}</p>
                 </div>
             `).join('');
@@ -664,7 +699,7 @@
         // RENDER SALAT
         function renderSalat() {
             const container = document.getElementById('salat-container');
-            container.innerHTML = salatData.map(s => `
+            container.innerHTML = salatData.map((s, i) => `
                 <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
                     <div class="flex justify-between items-center border-b border-slate-100 pb-2">
                         <div>
@@ -678,7 +713,7 @@
                         <p class="text-base font-arabic text-right leading-relaxed text-slate-800" dir="rtl">${s.niat}</p>
                         <p class="text-xs font-bold text-emeraldDark italic">${s.latin}</p>
                     </div>
-                    <button onclick="speakText('${s.latin}')" class="w-full bg-purple-50 hover:bg-purple-100 text-purple-800 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+                    <button onclick="playAudio('salat',${i})" class="w-full bg-purple-50 hover:bg-purple-100 text-purple-800 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-volume-high text-xs"></i> Putar Niat ${s.name}
                     </button>
                 </div>
@@ -697,118 +732,120 @@
             showQuestion();
         }
 
+        let answered = false;
+
         function showQuestion() {
+            answered = false;
             const q = quizData[currentQuizIdx];
             document.getElementById('quiz-progress').textContent = `Pertanyaan ${currentQuizIdx + 1} dari ${quizData.length}`;
             document.getElementById('quiz-score').textContent = score;
             document.getElementById('quiz-question').textContent = q.question;
-
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = q.options.map((opt, idx) => `
-                <button onclick="checkAnswer(${idx})" class="w-full bg-slate-100 hover:bg-emerald-50 hover:border-emeraldCustom border-2 border-transparent text-slate-800 font-semibold py-3 px-4 rounded-2xl text-xs sm:text-sm text-left transition-all flex items-center justify-between">
+            document.getElementById('quiz-options').innerHTML = q.options.map((opt, idx) => `
+                <button onclick="checkAnswer(${idx})" class="opt w-full bg-slate-100 hover:bg-emerald-50 hover:border-emeraldCustom border-2 border-transparent text-slate-800 font-semibold py-3 px-4 rounded-2xl text-sm text-left transition-all disabled:cursor-default">
                     <span>${opt}</span>
-                    <i class="fa-solid fa-circle-chevron-right text-slate-400"></i>
                 </button>
-            `).join('');
+            `).join('') + '<div id="quiz-feedback" class="pt-2"></div>';
         }
 
-        function checkAnswer(selectedIdx) {
-            if (selectedIdx === quizData[currentQuizIdx].answer) {
-                score += 20;
-                alert("Masya Allah, Jawabanmu Tepat! 🎉");
-            } else {
-                alert("Ayo Coba Lagi Ya! Semangat! 💪");
-            }
+        function checkAnswer(i) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[currentQuizIdx];
+            const ok = i === q.answer;
+            if (ok) score += 20;
+            document.getElementById('quiz-score').textContent = score;
+            document.querySelectorAll('#quiz-options button.opt').forEach((b, idx) => {
+                b.disabled = true;
+                b.classList.remove('bg-slate-100');
+                if (idx === q.answer) b.classList.add('bg-emerald-100', 'border-emeraldCustom');
+                else if (idx === i) b.classList.add('bg-red-50', 'border-red-400');
+            });
+            const last = currentQuizIdx === quizData.length - 1;
+            document.getElementById('quiz-feedback').innerHTML =
+                `<p class="text-sm font-bold ${ok ? 'text-emeraldDark' : 'text-red-600'}">${ok ? 'Masya Allah, jawabanmu tepat! 🎉' : 'Belum tepat. Jawaban yang benar: ' + q.options[q.answer]}</p>` +
+                `<button onclick="nextQuestion()" class="mt-3 bg-emeraldCustom hover:bg-emeraldDark text-white px-6 py-3 rounded-2xl font-bold text-sm">${last ? 'Lihat Hasil' : 'Lanjut'} →</button>`;
+        }
 
+        function nextQuestion() {
             currentQuizIdx++;
-            if (currentQuizIdx < quizData.length) {
-                showQuestion();
-            } else {
-                document.getElementById('quiz-box').classList.add('hidden');
-                document.getElementById('quiz-result').classList.remove('hidden');
-                document.getElementById('final-score').textContent = score;
-            }
+            if (currentQuizIdx < quizData.length) { showQuestion(); return; }
+            document.getElementById('quiz-box').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('final-title').textContent =
+                score >= 80 ? 'Masya Allah, Hebat!' : score >= 40 ? 'Bagus! Ayo belajar lagi ya' : 'Semangat! Yuk baca materinya dulu';
+            const sel = document.getElementById('activityType');
+            let o = sel.querySelector('option[data-kuis]');
+            if (!o) { o = document.createElement('option'); o.dataset.kuis = '1'; sel.appendChild(o); }
+            o.value = `Kuis Ibadah Interaktif (Skor ${score}/100)`;
+            o.textContent = o.value;
         }
 
-        function resetQuiz() {
-            initQuiz();
+        function reportQuiz() {
+            const o = document.querySelector('#activityType option[data-kuis]');
+            if (o) document.getElementById('activityType').value = o.value;
+            showSection('praktek');
         }
+
+        function resetQuiz() { initQuiz(); }
 
         // GENERATE KARTU CAPAIAN DIGITAL & REPORT WA
         let currentReportData = {};
 
         function generateCertificate(event) {
             event.preventDefault();
-
-            const childName = document.getElementById('childName').value;
-            const childGrade = document.getElementById('childGrade').value;
-            const activityType = document.getElementById('activityType').value;
-            const starRating = document.getElementById('starRating').value;
-            const parentNotes = document.getElementById('parentNotes').value || "Praktik berjalan lancar di rumah.";
-
-            document.getElementById('certChildName').textContent = childName;
-            document.getElementById('certGrade').textContent = childGrade;
-            document.getElementById('certActivity').textContent = activityType;
-            document.getElementById('certStars').textContent = starRating;
-            document.getElementById('certNotes').textContent = parentNotes;
-
+            const v = id => document.getElementById(id).value.trim();
+            const tgl = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+            currentReportData = { name: v('childName'), grade: v('childGrade'), activity: v('activityType'), stars: v('starRating'), notes: v('parentNotes'), tgl };
+            const d = currentReportData;
+            document.getElementById('certChildName').textContent = d.name;
+            document.getElementById('certGrade').textContent = `${d.grade} • ${d.tgl}`;
+            document.getElementById('certActivity').textContent = d.activity;
+            document.getElementById('certStars').textContent = d.stars;
+            document.getElementById('certNotes').textContent = d.notes;
+            document.getElementById('certNotesBox').classList.toggle('hidden', !d.notes);
             document.getElementById('certificateContainer').classList.remove('hidden');
             document.getElementById('certificateContainer').scrollIntoView({ behavior: 'smooth' });
-
-            currentReportData = {
-                name: childName,
-                grade: childGrade,
-                activity: activityType,
-                stars: starRating,
-                notes: parentNotes
-            };
         }
 
         function sendReportToWA() {
-            if (!currentReportData.name) return;
-
-            const adminWA = "6285134961663";
+            const d = currentReportData;
+            if (!d.name) return;
             const message = `*LAPORAN PRAKTIK IBADAH DIGITAL - TK ISLAM AL-IKHLAS*\n\n` +
-                `• *Nama Ananda:* ${currentReportData.name}\n` +
-                `• *Kelompok Belajar:* ${currentReportData.grade}\n` +
-                `• *Aktivitas Selesai:* ${currentReportData.activity}\n` +
-                `• *Evaluasi Ortu:* ${currentReportData.stars}\n` +
-                `• *Catatan Rumah:* "${currentReportData.notes}"\n\n` +
-                `_Mohon apresiasi dan motivasi dari Ustadzah untuk ananda. Terima kasih._\n\n` +
+                `• *Tanggal:* ${d.tgl}\n` +
+                `• *Nama Ananda:* ${d.name}\n` +
+                `• *Kelompok Belajar:* ${d.grade}\n` +
+                `• *Aktivitas Selesai:* ${d.activity}\n` +
+                `• *Evaluasi Ortu:* ${d.stars}\n` +
+                (d.notes ? `• *Catatan Rumah:* "${d.notes}"\n` : '') +
+                `\n_Mohon apresiasi dan motivasi dari Ustadzah untuk ananda. Terima kasih._\n\n` +
                 `*(Dikirim dari App Sahabat Wali Murid TKIA)*`;
-
-            const waUrl = `https://wa.me/${adminWA}?text=${encodeURIComponent(message)}`;
-            window.open(waUrl, '_blank');
+            window.open(`https://wa.me/6285134961663?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // LOGIC JURNAL IBADAH
+        // LOGIC JURNAL IBADAH (disimpan per tanggal, otomatis kosong di hari baru)
+        const jurnalKey = () => 'jurnal_ibadah_tkia_' + new Date().toLocaleDateString('sv-SE');
+
         function renderJurnal() {
-            const dateStr = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('jurnal-date').textContent = dateStr;
-
-            const savedState = JSON.parse(localStorage.getItem('jurnal_ibadah_tkia') || '{}');
-            const container = document.getElementById('jurnal-list');
-
-            container.innerHTML = jurnalItems.map((item, idx) => {
-                const isChecked = savedState[idx] ? 'checked' : '';
-                return `
-                    <label class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-emerald-50/50 rounded-2xl border border-slate-100 cursor-pointer transition-all">
-                        <input type="checkbox" onchange="toggleJurnal(${idx})" ${isChecked} class="w-5 h-5 accent-emeraldCustom rounded-md cursor-pointer">
-                        <span class="text-xs sm:text-sm font-semibold text-slate-700">${item}</span>
-                    </label>
-                `;
-            }).join('');
+            document.getElementById('jurnal-date').textContent = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const saved = store.get(jurnalKey(), {});
+            document.getElementById('jurnal-list').innerHTML = jurnalItems.map((item, idx) => `
+                <label class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-emerald-50/50 rounded-2xl border border-slate-100 cursor-pointer transition-all">
+                    <input type="checkbox" onchange="toggleJurnal(${idx})" ${saved[idx] ? 'checked' : ''} class="w-6 h-6 accent-emeraldCustom rounded-md cursor-pointer">
+                    <span class="text-sm font-semibold text-slate-700">${item}</span>
+                </label>
+            `).join('');
         }
 
         function toggleJurnal(idx) {
-            const savedState = JSON.parse(localStorage.getItem('jurnal_ibadah_tkia') || '{}');
-            savedState[idx] = !savedState[idx];
-            localStorage.setItem('jurnal_ibadah_tkia', JSON.stringify(savedState));
+            const saved = store.get(jurnalKey(), {});
+            saved[idx] = !saved[idx];
+            store.set(jurnalKey(), saved);
         }
 
         function resetJurnal() {
-            if(confirm("Apakah Anda yakin ingin mengosongkan centang jurnal hari ini?")) {
-                localStorage.removeItem('jurnal_ibadah_tkia');
+            if (confirm("Apakah Anda yakin ingin mengosongkan centang jurnal hari ini?")) {
+                store.del(jurnalKey());
                 renderJurnal();
             }
         }
