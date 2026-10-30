@@ -55,8 +55,8 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-goldCustom selection:text-white pb-24 sm:pb-0">
 
     <!-- TOP HEADER -->
-    <header class="bg-white border-b border-emerald-100 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <header class="bg-white border-b border-emerald-100 relative sm:sticky sm:top-0 z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html" target="_blank" rel="noopener" class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-emeraldDark text-goldCustom font-bold flex items-center justify-center text-xs border-2 border-goldCustom shadow-sm">
                     TKIA
@@ -67,15 +67,15 @@
                 </div>
             </a>
             
-            <div class="flex flex-wrap items-center gap-2">
-                <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-xs font-bold text-emeraldDark hover:text-white bg-emerald-50 hover:bg-emeraldCustom border border-emerald-200 px-3 py-2 rounded-full transition-all">
-                    <span aria-hidden="true" class="text-emeraldCustom">🏠</span> Website Utama
+            <div class="grid grid-cols-3 sm:flex sm:items-center gap-2 w-full sm:w-auto">
+                <a href="https://tk-islam-alikhlas.github.io/tkislamalikhlas/index.html" target="_blank" rel="noopener" class="flex flex-col sm:flex-row items-center justify-center text-center leading-tight gap-1 sm:gap-1.5 text-[12px] sm:text-[13px] font-bold px-2 sm:px-3 py-2 rounded-2xl sm:rounded-full min-h-[56px] sm:min-h-0 transition-all text-emeraldDark hover:text-white bg-emerald-50 hover:bg-emeraldCustom border border-emerald-200">
+                    <span aria-hidden="true" class="text-xl sm:text-sm leading-none">🏠</span> <span>Website Utama</span>
                 </a>
-                <button onclick="showSection('layanan')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-2 rounded-full flex items-center gap-1.5 transition-all">
-                    <span aria-hidden="true">💻</span> Jasa App & Ebook
+                <button onclick="showSection('layanan')" class="flex flex-col sm:flex-row items-center justify-center text-center leading-tight gap-1 sm:gap-1.5 text-[12px] sm:text-[13px] font-bold px-2 sm:px-3 py-2 rounded-2xl sm:rounded-full min-h-[56px] sm:min-h-0 transition-all bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300">
+                    <span aria-hidden="true" class="text-xl sm:text-sm leading-none">💻</span> <span>Jasa App & Ebook</span>
                 </button>
-                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="bg-emeraldCustom hover:bg-emeraldDark text-white text-xs font-bold px-3 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-sm">
-                    <span aria-hidden="true" class="text-sm">💬</span> Admin PPDB
+                <a href="https://wa.me/6285134961663?text=Assalamu%27alaikum%20Admin%20TK%20Islam%20Al-Ikhlas" target="_blank" class="flex flex-col sm:flex-row items-center justify-center text-center leading-tight gap-1 sm:gap-1.5 text-[12px] sm:text-[13px] font-bold px-2 sm:px-3 py-2 rounded-2xl sm:rounded-full min-h-[56px] sm:min-h-0 transition-all bg-emeraldCustom hover:bg-emeraldDark text-white shadow-sm">
+                    <span aria-hidden="true" class="text-xl sm:text-sm leading-none">💬</span> <span>Admin PPDB</span>
                 </a>
             </div>
         </div>
@@ -100,7 +100,7 @@
     </section>
 
     <!-- NAVIGASI TAB MODUL MENU -->
-    <nav class="bg-white border-b border-slate-200 sticky top-[var(--hh,57px)] z-30 shadow-sm">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 sm:top-[var(--hh,57px)] z-30 shadow-sm">
         <div class="max-w-5xl mx-auto px-2 overflow-x-auto scrollbar-none flex justify-start sm:justify-center gap-1 sm:gap-2 py-2">
             <button onclick="showSection('praktek')" id="nav-praktek" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 bg-emeraldCustom text-white shadow">
                 <span aria-hidden="true" class="text-goldCustom">🏅</span> Laporan Praktik
